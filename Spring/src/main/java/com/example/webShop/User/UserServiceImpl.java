@@ -1,5 +1,8 @@
-package com.example.webShop;
+package com.example.webShop.User;
 
+import com.example.webShop.User.User;
+import com.example.webShop.User.UserRepository;
+import com.example.webShop.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

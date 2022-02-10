@@ -1,4 +1,4 @@
-package com.example.webShop;
+package com.example.webShop.User;
 
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
