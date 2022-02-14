@@ -28,4 +28,9 @@ public class UserController {
         //userRepository.save(user);
         userService.saveUser(user);
     }
+
+    @GetMapping("/test")
+    public String test(){
+        return "amigos";
+    }
 }

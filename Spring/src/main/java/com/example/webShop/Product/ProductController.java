@@ -1,8 +1,6 @@
 package com.example.webShop.Product;
 
-import com.example.webShop.User.User;
-import com.example.webShop.User.UserRepository;
-import com.example.webShop.User.UserServiceImpl;
+
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
