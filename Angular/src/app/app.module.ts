@@ -9,6 +9,13 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { UserService } from './user.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -16,13 +23,20 @@ import { ProductFormComponent } from './product-form/product-form.component';
     UserListComponent,
     UserFormComponent,
     ProductListComponent,
-    ProductFormComponent
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
