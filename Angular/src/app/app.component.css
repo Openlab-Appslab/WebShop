@@ -31,3 +31,18 @@ mat-sidenav {
 mat-sidenav-container {
   height: calc(100vh - 65px);
 }
+
+.btn-info {
+  background-color: #002b5c;
+  border-color: #002b5c;
+}
+
+.btn {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  color: #002b5c;
+  text-align: center;
+  margin-top: 10px;
+}
