@@ -14,9 +14,24 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) {
   }
 
+  public selected: string = 'ID';
+
   ngOnInit() {
     this.userService.findAll().subscribe(data => {
       this.users = data;
     });
+  }
+
+  changeState(){
+    if (this.selected === 'Email') {
+      this.users.sort((a, b) => (a.email > b.email) ? 1 : -1)
+    }
+
+    else if (this.selected === 'Name'){
+      this.users.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    }
+    else if (this.selected === 'ID'){
+      this.users.sort((a, b) => (a.id > b.id) ? 1 : -1)
+    }
   }
 }
