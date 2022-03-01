@@ -8,6 +8,25 @@
       <mat-option value='Size'>Size</mat-option>
     </mat-select>
   </mat-form-field>
+  <div class="toggle">
+    <mat-slide-toggle (click)="toggle()">{{toggle_name}}</mat-slide-toggle>
+  </div>
+  <div *ngIf="isVisible">
+    <div>
+      <mat-form-field class="mat_input" appearance="fill">
+        <mat-label>Min. size</mat-label>
+        <input matInput (keypress)="keyPressNumbers($event)" (ngModelChange)="OnMinChange($event)" [(ngModel)]="min_value" placeholder="type only number">
+      </mat-form-field>
+    </div>
+      <mat-form-field class="mat_input" appearance="fill">
+        <mat-label>Max. size</mat-label>
+        <input matInput (keypress)="keyPressNumbers($event)" (ngModelChange)="OnMaxChange($event)" [(ngModel)]="max_value" placeholder="type only number">
+      </mat-form-field>
+    <div>
+      <button mat-raised-button color="primary" class="apply" (click)="FilterSize()">Apply filter</button>
+      <button mat-raised-button color="warn" class="reset" (click)="ResetFilter()">Reset filter</button>
+    </div>
+  </div>
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
     <tr>
