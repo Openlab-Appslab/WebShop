@@ -19,7 +19,6 @@ export class ProductListComponent implements OnInit {
   max_value: any;
   check_min_state: boolean = false;
   check_max_state: boolean = false;
-  msg: string;
   toggle_name: string = "Filter size";
 
   ngOnInit(): void {
@@ -77,7 +76,7 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  keyPressNumbers(event: any) {
+  onlyNumbers(event: any) {
     let charCode = (event.which) ? event.which : event.keyCode;
     if ((charCode < 48 || charCode > 57)) {
       event.preventDefault();

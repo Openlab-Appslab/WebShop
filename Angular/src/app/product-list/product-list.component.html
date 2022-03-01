@@ -15,12 +15,12 @@
     <div>
       <mat-form-field class="mat_input" appearance="fill">
         <mat-label>Min. size</mat-label>
-        <input matInput (keypress)="keyPressNumbers($event)" (ngModelChange)="OnMinChange($event)" [(ngModel)]="min_value" placeholder="type only number">
+        <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="OnMinChange($event)" [(ngModel)]="min_value" placeholder="type only number">
       </mat-form-field>
     </div>
       <mat-form-field class="mat_input" appearance="fill">
         <mat-label>Max. size</mat-label>
-        <input matInput (keypress)="keyPressNumbers($event)" (ngModelChange)="OnMaxChange($event)" [(ngModel)]="max_value" placeholder="type only number">
+        <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="OnMaxChange($event)" [(ngModel)]="max_value" placeholder="type only number">
       </mat-form-field>
     <div>
       <button mat-raised-button color="primary" class="apply" (click)="FilterSize()">Apply filter</button>
