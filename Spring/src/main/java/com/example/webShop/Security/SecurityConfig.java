@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
-        /*auth.inMemoryAuthentication()
+       auth.inMemoryAuthentication()
                 .withUser("a")
                 .password("b")
                 .roles("USER")
@@ -28,13 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .password("y")
                 .roles("ADMIN");
 
-    }
-
-    @Override
+   @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/users").hasRole("ADMIN")
-                .antMatchers("/test").hasAnyRole("USER","ADMIN")
+                .antMatchers("/adduser").hasAnyRole("USER","ADMIN")
                 .antMatchers("/").permitAll()
                 .and().formLogin();
     }
@@ -46,8 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 
 
-<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
- */
+
+
+*/

@@ -1,4 +1,4 @@
-package com.example.webShop.User;
+/*package com.example.webShop.User;
 
 import com.example.webShop.User.User;
 import com.example.webShop.User.UserRepository;
@@ -21,3 +21,4 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 }
+*/

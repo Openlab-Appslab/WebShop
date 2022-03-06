@@ -11,13 +11,13 @@ public class Controller {
         return "Welcome user";
     }
 
-    @GetMapping("/users")
+    @GetMapping("/testik1")
     public String user (){
         return "Welcome user";
     }
 
 
-    @GetMapping("/test")
+    @GetMapping("/testik2")
     public String admin (){
         return "Welcome admin";
     }

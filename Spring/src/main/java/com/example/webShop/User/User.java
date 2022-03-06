@@ -1,4 +1,4 @@
-package com.example.webShop.User;
+/*package com.example.webShop.User;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -55,3 +55,4 @@ public class User {
     }
 
 }
+*/

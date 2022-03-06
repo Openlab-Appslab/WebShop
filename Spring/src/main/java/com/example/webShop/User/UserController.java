@@ -1,4 +1,4 @@
-package com.example.webShop.User;
+/*package com.example.webShop.User;
 
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,3 +34,4 @@ public class UserController {
         return "amigos";
     }
 }
+*/

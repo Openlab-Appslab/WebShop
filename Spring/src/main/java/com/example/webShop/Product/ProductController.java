@@ -27,6 +27,22 @@ public class ProductController {
     void addProduct(@RequestBody Product product){
         productService.saveProduct(product);
     }
+
+    @GetMapping("/productsDetail")
+    public Product updateTimeOfSee(){
+       return (Product) productRepository.findAll();
+    }
+
+    @PostMapping("/productsDetail")
+    void updateProduct(@RequestBody Product product){
+        productService.updateDate(product.id/*, product.date*/);
+    }
+/*
+    @GetMapping("/lastTree")
+    public List<Product> getLastTree(){
+
+    }
+*/
 }
 
 

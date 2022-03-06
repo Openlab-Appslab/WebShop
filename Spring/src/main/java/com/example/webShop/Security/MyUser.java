@@ -1,13 +1,10 @@
-package com.example.webShop.Security;
-
-import lombok.Getter;
-/*import lombok.Setter;
+/*package com.example.webShop.Security;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "pokus")
-public class User {
+public class MyUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

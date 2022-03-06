@@ -16,11 +16,11 @@ public class MyUserDetails implements UserDetails {
     private boolean active;
     private List<GrantedAuthority> authorities;
 
-    public  MyUserDetails(User aUser){
-        this.password = aUser.getPassword();
-        this.userName = aUser.getUserName();
-        this.active =  aUser.isActive();
-        this.authorities = Arrays.stream(aUser.getRoles().split(","))
+    public  MyUserDetails(MyUser aMyUser){
+        this.password = aMyUser.getPassword();
+        this.userName = aMyUser.getUserName();
+        this.active =  aMyUser.isActive();
+        this.authorities = Arrays.stream(aMyUser.getRoles().split(","))
                 .map(role -> new SimpleGrantedAuthority(role))
                 .collect(Collectors.toList());
 

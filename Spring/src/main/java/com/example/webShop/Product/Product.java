@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -23,6 +24,6 @@ public class Product {
     String product_name;
     String product_parameters;
     int product_size;
-
+    Date date = new Date(System.currentTimeMillis());
 
 }
