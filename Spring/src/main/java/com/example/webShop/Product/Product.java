@@ -19,11 +19,17 @@ import java.util.Date;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    private int id;
 
-    String product_name;
-    String product_parameters;
-    int product_size;
-    Date date = new Date(System.currentTimeMillis());
+    private String product_name;
+    private String product_parameters;
+    private int product_size;
+    private Date date = new Date(System.currentTimeMillis());
 
+/*
+    private String productName;
+    private String productParameters;
+    private int productSize;
+    private Date productDateOfClick = new Date(System.currentTimeMillis());
+*/
 }

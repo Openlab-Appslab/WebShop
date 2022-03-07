@@ -6,7 +6,7 @@ public interface ProductService {
 
     void saveProduct(Product product);
 
-    void updateDate(long id /*, Date date*/);
+    void updateDate(int id);
 
     void findOutLastTree(Product product);
 }

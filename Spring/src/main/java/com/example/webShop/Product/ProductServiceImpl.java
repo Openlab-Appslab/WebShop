@@ -25,20 +25,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
-    /*
-    @Override
-    public void updateTimeOfSee(Product product) {
-        productRepository.save(product);
-    }
-
-    public void updateDate(String id, Date inDate){
-        for (int i = 0; i < liDate.size(); i++)
-
-    }*/
-
-    public void updateDate(long id /*, Date date*/) {
+    public void updateDate(int id) {
         Product myProduct = productRepository.findById(id);
-        myProduct.date =  new Date(System.currentTimeMillis());;
+        myProduct.setDate(new Date(System.currentTimeMillis()));
         productRepository.save(myProduct);
     }
 
@@ -51,3 +40,19 @@ public class ProductServiceImpl implements ProductService {
 
     }
 }
+
+
+
+
+
+
+    /*
+    @Override
+    public void updateTimeOfSee(Product product) {
+        productRepository.save(product);
+    }
+
+    public void updateDate(String id, Date inDate){
+        for (int i = 0; i < liDate.size(); i++)
+
+    }*/

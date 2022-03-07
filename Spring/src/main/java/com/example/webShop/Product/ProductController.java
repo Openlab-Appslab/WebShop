@@ -35,8 +35,10 @@ public class ProductController {
 
     @PostMapping("/productsDetail")
     void updateProduct(@RequestBody Product product){
-        productService.updateDate(product.id/*, product.date*/);
+        productService.updateDate(product.getId());
     }
+
+
 /*
     @GetMapping("/lastTree")
     public List<Product> getLastTree(){
