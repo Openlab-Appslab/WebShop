@@ -5,9 +5,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @NoArgsConstructor
@@ -42,13 +42,13 @@ public class ProductController {
 
 
     @PostMapping("/lastTree")
-    void lasttreeProduct(@RequestBody ArrayList<Integer> ids){
+    void lasttreeProduct(@RequestBody Integer[] ids){
         productService.findOutLastTree(ids);
     }
 
     @GetMapping("/lastTree")
-    public List<Product> getLastTree(){
-         return  (List<Product>) productRepository.findAll();
+    public ArrayList<Optional<Product>> getLastTree(){
+    return productService.getProductsList();
     }
 
 
@@ -59,7 +59,6 @@ public class ProductController {
 
     @GetMapping("/lastOne")
     public Product getLastOne(){
-      //  return (Product) productService.returnLastOne(10);
         return productService.getProduct2();
     }
 }

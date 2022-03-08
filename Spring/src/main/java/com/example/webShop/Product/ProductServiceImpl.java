@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -31,11 +32,25 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
+    public ArrayList<Optional<Product>> getProductsList() {
+        return productsList;
+    }
 
-    public void findOutLastTree(ArrayList<Integer> ids) {
-       for (int i = 0; i < ids.size(); i++){
-           productRepository.save(productRepository.findById(i));
-       }
+    public void setProductsList(ArrayList<Optional<Product>> productsList) {
+        this.productsList = productsList;
+    }
+
+    public ArrayList<Optional<Product>> productsList;
+
+    public void findOutLastTree(Integer[] ids) {
+        ArrayList<Optional<Product>> productArrayList = new ArrayList<>();
+
+        productArrayList.add(productRepository.findById(ids[0]));
+        productArrayList.add(productRepository.findById(ids[1]));
+        productArrayList.add(productRepository.findById(ids[2]));
+
+        setProductsList(productArrayList);
+
     }
     public Product product2;
 
@@ -52,6 +67,8 @@ public class ProductServiceImpl implements ProductService {
        setProduct2(productRepository.findById(id));
         return getProduct2();
     }
+
+
 
    /* public Product getReturnLastOne(){
         return productRepository.pro
