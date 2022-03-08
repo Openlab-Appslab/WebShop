@@ -1,6 +1,8 @@
 package com.example.webShop.Product;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public interface ProductService {
 
@@ -8,5 +10,7 @@ public interface ProductService {
 
     void updateDate(int id);
 
-    void findOutLastTree(Product product);
+    void findOutLastTree(ArrayList<Integer> ids);
+
+    Product returnLastOne(int id);
 }

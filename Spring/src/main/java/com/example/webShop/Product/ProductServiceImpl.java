@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -24,21 +23,50 @@ public class ProductServiceImpl implements ProductService {
         productRepository.save(product);
     }
 
-
+    @Override
     public void updateDate(int id) {
         Product myProduct = productRepository.findById(id);
         myProduct.setDate(new Date(System.currentTimeMillis()));
         productRepository.save(myProduct);
     }
 
+
+
+    public void findOutLastTree(ArrayList<Integer> ids) {
+       for (int i = 0; i < ids.size(); i++){
+           productRepository.save(productRepository.findById(i));
+       }
+    }
+    public Product product2;
+
+    public Product getProduct2() {
+        return product2;
+    }
+
+    public void setProduct2(Product product2) {
+        this.product2 = product2;
+    }
+
     @Override
-    public void findOutLastTree(Product product) {
+    public Product returnLastOne(int id) {
+       setProduct2(productRepository.findById(id));
+        return getProduct2();
+    }
+
+   /* public Product getReturnLastOne(){
+        return productRepository.pro
+    }*/
+     /*
+
+        ids.forEach(productRepository::findById)
+
+       ;
+       Date zoradit = product.getDate();
       List<Product> lastProduct = (List<Product>)productRepository.findAll();
 
+
         lastProduct.stream().sorted();
-
-
-    }
+    }*/
 }
 
 
