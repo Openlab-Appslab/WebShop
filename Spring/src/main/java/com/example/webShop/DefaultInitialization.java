@@ -1,4 +1,4 @@
-package com.example.webShop;
+/*package com.example.webShop;
 
 import com.example.webShop.User.User;
 import com.example.webShop.User.UserService;
@@ -30,3 +30,4 @@ public class DefaultInitialization implements CommandLineRunner {
     }
 
 }
+*/

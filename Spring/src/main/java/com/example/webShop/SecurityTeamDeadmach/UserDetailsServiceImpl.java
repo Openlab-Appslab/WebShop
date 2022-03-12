@@ -1,4 +1,4 @@
-package com.example.webShop.SecurityTeamDeadmach;
+/*package com.example.webShop.SecurityTeamDeadmach;
 
 import com.example.webShop.User.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,4 +22,55 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(username));
     }
 
+}
+*/
+package com.example.webShop.SecurityTeamDeadmach;
+
+import com.example.webShop.User.User;
+import com.example.webShop.User.UserRepository;
+import com.example.webShop.User.UserService;
+import com.example.webShop.User.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
+public class UserDetailsServiceImpl implements UserDetailsService {
+/*
+    private final UserService userService;
+
+    public UserDetailsServiceImpl(UserService userService) {
+        this.userService = userService;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return this.userService.getUserByUsername(username)
+                .map(UserDetailsImpl::new)
+                .orElseThrow(() -> new UsernameNotFoundException(username));
+    }
+*/
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> myUser = userRepository.findByUserName(username);
+
+        myUser.orElseThrow(() -> new UsernameNotFoundException("no found: " + username));
+
+        UserDetails userDetails = myUser.map(myUser1 -> new UserDetailsImpl(myUser1)).get();
+
+
+        System.out.println(userDetails.getPassword());
+        System.out.println(userDetails.getAuthorities());
+        System.out.println(userDetails.getUsername());
+
+        return userDetails;
+    }
 }
