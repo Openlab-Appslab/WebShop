@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void updateDate(int id) {
         Product myProduct = productRepository.findById(id);
-        myProduct.setDate(new Date(System.currentTimeMillis()));
+        myProduct.setTimeOfClick(new Date(System.currentTimeMillis()));
         productRepository.save(myProduct);
     }
 
@@ -78,7 +78,7 @@ public class ProductServiceImpl implements ProductService {
         ids.forEach(productRepository::findById)
 
        ;
-       Date zoradit = product.getDate();
+       Date zoradit = product.getTimeOfClick();
       List<Product> lastProduct = (List<Product>)productRepository.findAll();
 
 

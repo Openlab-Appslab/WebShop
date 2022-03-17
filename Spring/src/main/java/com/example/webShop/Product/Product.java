@@ -4,7 +4,6 @@ package com.example.webShop.Product;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,10 +18,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private String product_name;
-    private String product_parameters;
-    private int product_size;
-    private Date date = new Date(System.currentTimeMillis());
+    @Column(name = "product_name")
+    private String productName;
+    @Column(name = "product_parameters")
+    private String productParameters;
+    @Column(name = "product_size")
+    private int productSize;
+    @Column(name = "date")
+    private Date timeOfClick = new Date(System.currentTimeMillis());
 
 /*
     private String productName;
