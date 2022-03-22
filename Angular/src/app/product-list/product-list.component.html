@@ -18,31 +18,54 @@
         <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="OnMinChange($event)" [(ngModel)]="min_value" placeholder="type only number">
       </mat-form-field>
     </div>
-      <mat-form-field class="mat_input" appearance="fill">
-        <mat-label>Max. size</mat-label>
-        <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="OnMaxChange($event)" [(ngModel)]="max_value" placeholder="type only number">
-      </mat-form-field>
+    <mat-form-field class="mat_input" appearance="fill">
+      <mat-label>Max. size</mat-label>
+      <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="OnMaxChange($event)" [(ngModel)]="max_value" placeholder="type only number">
+    </mat-form-field>
     <div>
       <button mat-raised-button color="primary" class="apply" (click)="FilterSize()">Apply filter</button>
       <button mat-raised-button color="warn" class="reset" (click)="ResetFilter()">Reset filter</button>
     </div>
   </div>
-  <table class="table table-bordered table-striped">
-    <thead class="thead-dark">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Parameter</th>
-      <th scope="col">Size</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{ product.id }}</td>
-      <td>{{ product.productName }}</td>
-      <td>{{ product.productParameters }}</td>
-      <td>{{ product.productSize }}</td>
-    </tr>
-    </tbody>
-  </table>
+
+  <!--  <div style="display: flex">-->
+  <mat-grid-list cols="3" rowHeight="350">
+    <mat-grid-tile *ngFor="let product of products">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{product.productName}}</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <!--        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!--  </div>-->
+  <!--    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">-->
+  <!--      &lt;!&ndash; Card&ndash;&gt;-->
+  <!--      <div class="card rounded shadow-sm border-0">-->
+  <!--          <h5> <a href="#" class="text-dark">Awesome product</a></h5>-->
+  <!--          <p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>-->
+  <!--          <ul class="list-inline small">-->
+  <!--            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>-->
+  <!--            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>-->
+  <!--            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>-->
+  <!--            <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>-->
+  <!--            <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>-->
+  <!--          </ul>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
 </div>

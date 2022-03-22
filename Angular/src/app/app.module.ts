@@ -22,6 +22,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatInputModule} from "@angular/material/input";
 import {LandingComponent} from "./component/landing/landing.component";
 import {LoginComponent} from "./component/login/login.component";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import {LoginComponent} from "./component/login/login.component";
     MatSlideToggleModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatGridListModule,
+    MatCardModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
