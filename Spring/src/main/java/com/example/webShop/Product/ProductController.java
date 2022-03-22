@@ -21,46 +21,26 @@ public class ProductController {
     private ProductServiceImpl productService;
 
     @GetMapping("/products")
-    public List<Product> getProduct(){
+    public List<Product> getProduct() {
         return (List<Product>) productRepository.findAll();
-
     }
+
     @PostMapping("/products")
-    void addProduct(@RequestBody Product product){
+    void addProduct(@RequestBody Product product) {
         productService.saveProduct(product);
     }
 
-    @GetMapping("/productsDetail")
-    public Product updateTimeOfSee(){
-       return (Product) productRepository.findAll();
-    }
-
     @PostMapping("/productsDetail")
-    void updateProduct(@RequestBody Product product){
+    void updateProduct(@RequestBody Product product) {
         productService.updateDate(product.getId());
     }
 
 
-    @PostMapping("/lastTree")
-    void lasttreeProduct(@RequestBody Integer[] ids){
-        productService.findOutLastTree(ids);
-    }
-
     @GetMapping("/lastTree")
-    public ArrayList<Optional<Product>> getLastTree(){
-    return productService.getProductsList();
+    public List<Product> getLastTree() {
+        return productService.returnLastTree();
     }
 
-
-    @PostMapping("/lastOne")
-    void lastProduct(@RequestBody Product product){
-        productService.returnLastOne(product.getId());
-    }
-
-    @GetMapping("/lastOne")
-    public Product getLastOne(){
-        return productService.getProduct2();
-    }
 }
 
 

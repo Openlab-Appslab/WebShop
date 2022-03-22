@@ -1,12 +1,12 @@
 package com.example.webShop.Product;
 
+import java.util.List;
+
 public interface ProductService {
 
     void saveProduct(Product product);
 
     void updateDate(int id);
 
-    void findOutLastTree(Integer[] ids);
-
-    Product returnLastOne(int id);
+    List<Product> returnLastTree();
 }

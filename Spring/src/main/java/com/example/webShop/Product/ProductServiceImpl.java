@@ -4,9 +4,9 @@ package com.example.webShop.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -31,59 +31,12 @@ public class ProductServiceImpl implements ProductService {
         productRepository.save(myProduct);
     }
 
-
-    public ArrayList<Optional<Product>> getProductsList() {
-        return productsList;
-    }
-
-    public void setProductsList(ArrayList<Optional<Product>> productsList) {
-        this.productsList = productsList;
-    }
-
-    public ArrayList<Optional<Product>> productsList;
-
-    public void findOutLastTree(Integer[] ids) {
-        ArrayList<Optional<Product>> productArrayList = new ArrayList<>();
-
-        productArrayList.add(productRepository.findById(ids[0]));
-        productArrayList.add(productRepository.findById(ids[1]));
-        productArrayList.add(productRepository.findById(ids[2]));
-
-        setProductsList(productArrayList);
-
-    }
-    public Product product2;
-
-    public Product getProduct2() {
-        return product2;
-    }
-
-    public void setProduct2(Product product2) {
-        this.product2 = product2;
-    }
-
     @Override
-    public Product returnLastOne(int id) {
-       setProduct2(productRepository.findById(id));
-        return getProduct2();
+    public List<Product> returnLastTree() {
+    List<Product> products = productRepository.findAll();
+
+    return products.stream().sorted(Comparator.comparing(Product::getTimeOfClick, Comparator.reverseOrder())).limit(3).collect(Collectors.toList());
     }
-
-
-
-   /* public Product getReturnLastOne(){
-        return productRepository.pro
-    }*/
-     /*
-
-        ids.forEach(productRepository::findById)
-
-       ;
-       Date zoradit = product.getTimeOfClick();
-      List<Product> lastProduct = (List<Product>)productRepository.findAll();
-
-
-        lastProduct.stream().sorted();
-    }*/
 }
 
 
@@ -91,13 +44,3 @@ public class ProductServiceImpl implements ProductService {
 
 
 
-    /*
-    @Override
-    public void updateTimeOfSee(Product product) {
-        productRepository.save(product);
-    }
-
-    public void updateDate(String id, Date inDate){
-        for (int i = 0; i < liDate.size(); i++)
-
-    }*/
