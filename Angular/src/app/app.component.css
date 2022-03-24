@@ -50,3 +50,10 @@ mat-sidenav-container {
   text-align: center;
   margin-top: 10px;
 }
+.toolbar_login {
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  margin-left: 89%;
+}
