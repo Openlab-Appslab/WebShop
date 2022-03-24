@@ -18,14 +18,8 @@ public class WebShopApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WebShopApplication.class, args);
-		List<String> dateArray = new ArrayList<String>();
-		dateArray.add("2020-03-25");
-		dateArray.add("2019-01-27");
-		dateArray.add("2016-03-26");
-		dateArray.add("2020-02-26");
-		Collections.sort(dateArray);
-		System.out.println("The Object after sorting is : "
-				+ dateArray);
+
+
 	}
 	}
 
