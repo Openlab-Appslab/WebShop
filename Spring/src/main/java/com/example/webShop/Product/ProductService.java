@@ -9,4 +9,6 @@ public interface ProductService {
     void updateDate(int id);
 
     List<Product> returnLastTree();
+
+    List<Product>getMeCustomer(int height);
 }

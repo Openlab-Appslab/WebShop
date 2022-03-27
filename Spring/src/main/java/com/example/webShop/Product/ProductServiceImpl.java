@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -36,6 +35,24 @@ public class ProductServiceImpl implements ProductService {
     List<Product> products = productRepository.findAll();
 
     return products.stream().sorted(Comparator.comparing(Product::getTimeOfClick, Comparator.reverseOrder())).limit(3).collect(Collectors.toList());
+    }
+
+
+    public List<Product> getProductIdealList() {
+        return productIdealList;
+    }
+
+    public List<Product> setProductIdealList(List<Product> productIdealList) {
+        this.productIdealList = productIdealList;
+        return productIdealList;
+    }
+
+    List<Product> productIdealList;
+
+   @Override
+    public List<Product> getMeCustomer(int height){
+     return setProductIdealList(productRepository.findAll().stream().filter(p -> p.getHeightOfCustomer() < height).collect(Collectors.toList()));
+
     }
 }
 

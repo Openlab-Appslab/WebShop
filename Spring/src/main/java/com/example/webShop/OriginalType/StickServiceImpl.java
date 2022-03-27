@@ -11,21 +11,25 @@ public class StickServiceImpl implements StickService{
 StickRepository stickRepository;
 
     public StickParameters getStickParameters() {
-        return stickParameters;
+        return stickParameters1;
     }
 
     public void setStickParameters(StickParameters stickParameters) {
-        this.stickParameters = stickParameters;
+        this.stickParameters1 = stickParameters;
     }
 
-    StickParameters stickParameters;
+    StickParameters stickParameters1;
 
     @Override
     public void getMeGoodStick(double height, double weight) {
 
-        if(height <= 110 && weight <= 55){
-         setStickParameters(stickRepository.getById(90));
-        }
+    /*    if(height <= 110 && weight <= 55){
+         return (stickRepository.getById(90));
+        }*/
+
+
+setStickParameters(stickRepository.getById(90));
+
 
     }
 }

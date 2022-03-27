@@ -1,6 +1,7 @@
 package com.example.webShop.Product;
 
 
+import com.example.webShop.OriginalType.StickParameters;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @NoArgsConstructor
@@ -41,6 +43,16 @@ public class ProductController {
         return productService.returnLastTree();
     }
 
+    @PostMapping("/ideal")
+    void informationAboutCustomer(@RequestBody Product product) {
+        productService.getMeCustomer(product.getProductSize());
+    }
+
+    @GetMapping("/getIdeal")
+    public List<Product> getProductsByParameters(){
+        return productService.getProductIdealList();
+
+    }
 }
 
 

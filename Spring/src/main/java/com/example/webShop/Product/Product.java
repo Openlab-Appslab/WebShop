@@ -26,11 +26,10 @@ public class Product {
     private int productSize;
     @Column(name = "date")
     private Date timeOfClick = new Date(System.currentTimeMillis());
+    @Column(name = "weight_of_customer")
+    private int weightOfCustomer;
+    @Column(name = "height_of_customer")
+    private int heightOfCustomer;
 
-/*
-    private String productName;
-    private String productParameters;
-    private int productSize;
-    private Date productDateOfClick = new Date(System.currentTimeMillis());
-*/
+
 }
