@@ -21,6 +21,7 @@ export class ProductListComponent implements OnInit {
   check_max_state: boolean = false;
   toggle_name: string = "Filter size";
 
+
   ngOnInit(): void {
     this.productService.findAll().subscribe(data => {
       this.products = data;
@@ -76,7 +77,7 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  onlyNumbers(event: any) {
+  onlyNumbers(event: any): boolean {
     let charCode = (event.which) ? event.which : event.keyCode;
     if ((charCode < 48 || charCode > 57)) {
       event.preventDefault();
@@ -84,5 +85,9 @@ export class ProductListComponent implements OnInit {
     } else {
       return true;
     }
+  }
+
+  lastTree(product: Product) {
+    this.productService.lastTree(product).subscribe(() => {});
   }
 }

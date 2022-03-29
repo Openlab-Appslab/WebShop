@@ -22,7 +22,7 @@ public class Product {
     private String productName;
     @Column(name = "product_parameters")
     private String productParameters;
-    @Column(name = "product_size")
+    @Column(name = "product_size", nullable = false)
     private int productSize;
     @Column(name = "date")
     private Date timeOfClick = new Date(System.currentTimeMillis());
@@ -30,6 +30,4 @@ public class Product {
     private int weightOfCustomer;
     @Column(name = "height_of_customer")
     private int heightOfCustomer;
-
-
 }
