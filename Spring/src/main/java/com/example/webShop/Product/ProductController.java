@@ -24,7 +24,7 @@ public class ProductController {
 
     @GetMapping("/products")
     public List<Product> getProduct() {
-        return (List<Product>) productRepository.findAll();
+        return productRepository.findAll();
     }
 
     @PostMapping("/products")
@@ -38,7 +38,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/lastTree")
+    @GetMapping("/lastThree")
     public List<Product> getLastTree() {
         return productService.returnLastTree();
     }

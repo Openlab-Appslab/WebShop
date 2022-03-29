@@ -6,6 +6,7 @@ import {ProductListComponent} from "./product-list/product-list.component";
 import {ProductFormComponent} from "./product-form/product-form.component";
 import { LoginComponent } from './component/login/login.component';
 import {AuthGuard} from "./guard/auth.guard";
+import {LastThreeComponent} from "./last-three/last-three.component";
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'products', component: ProductListComponent},
   { path: 'addproducts', component: ProductFormComponent, canActivate: [AuthGuard] },
   { path: 'users', component: UserListComponent },
-  { path: 'adduser', component: UserFormComponent, canActivate: [AuthGuard] }
+  { path: 'adduser', component: UserFormComponent, canActivate: [AuthGuard] },
+  { path: 'lastthree', component: LastThreeComponent }
 ];
 
 @NgModule({

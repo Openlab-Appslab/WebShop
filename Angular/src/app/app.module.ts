@@ -24,6 +24,7 @@ import {LandingComponent} from "./component/landing/landing.component";
 import {LoginComponent} from "./component/login/login.component";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
+import { LastThreeComponent } from './last-three/last-three.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {MatCardModule} from "@angular/material/card";
     ProductListComponent,
     ProductFormComponent,
     LandingComponent,
-    LoginComponent
+    LoginComponent,
+    LastThreeComponent
   ],
   imports: [
     BrowserModule,

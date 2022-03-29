@@ -88,6 +88,6 @@ export class ProductListComponent implements OnInit {
   }
 
   lastTree(product: Product) {
-    this.productService.lastTree(product).subscribe(() => {});
+    this.productService.lastOne(product).subscribe(() => {});
   }
 }

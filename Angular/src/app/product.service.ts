@@ -9,11 +9,13 @@ import {Product} from "./product";
 export class ProductService {
 
   private productsUrl: string;
-  private lastTreeUrl: string;
+  private lastOneUrl: string;
+  private lastThreeUrl: string;
 
   constructor(private http: HttpClient) {
     this.productsUrl = 'http://localhost:8080/products';
-    this.lastTreeUrl = 'http://localhost:8080/productsDetail';
+    this.lastOneUrl = 'http://localhost:8080/productsDetail';
+    this.lastThreeUrl = 'http://localhost:8080/lastThree';
   }
 
   public findAll(): Observable<Product[]> {
@@ -24,7 +26,11 @@ export class ProductService {
     return this.http.post<Product>(this.productsUrl, product);
   }
 
-  lastTree(product: Product) {
-    return this.http.post<Product>(this.lastTreeUrl, product);
+  public lastOne(product: Product) {
+    return this.http.post<Product>(this.lastOneUrl, product);
+  }
+
+  public LastThree(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.lastThreeUrl);
   }
 }
