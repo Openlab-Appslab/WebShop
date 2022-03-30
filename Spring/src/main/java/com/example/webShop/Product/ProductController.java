@@ -37,7 +37,6 @@ public class ProductController {
         productService.updateDate(product.getId());
     }
 
-
     @GetMapping("/lastThree")
     public List<Product> getLastTree() {
         return productService.returnLastTree();
@@ -45,7 +44,7 @@ public class ProductController {
 
     @PostMapping("/ideal")
     void informationAboutCustomer(@RequestBody Product product) {
-        productService.getMeCustomer(product.getProductSize());
+        productService.getMeCustomer(product.getHeightOfCustomer(), product.getWeightOfCustomer());
     }
 
     @GetMapping("/getIdeal")

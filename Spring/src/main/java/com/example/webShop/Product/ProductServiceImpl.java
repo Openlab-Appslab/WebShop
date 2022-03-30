@@ -50,8 +50,10 @@ public class ProductServiceImpl implements ProductService {
     List<Product> productIdealList;
 
    @Override
-    public List<Product> getMeCustomer(int height){
-     return setProductIdealList(productRepository.findAll().stream().filter(p -> p.getHeightOfCustomer() < height).collect(Collectors.toList()));
+    public List<Product> getMeCustomer(int height , int weight){
+     return setProductIdealList(productRepository.findAll().stream().filter(p -> p.getHeightOfCustomer() < (height + 5) && p.getHeightOfCustomer() > (height - 5)
+                                                                    && p.getWeightOfCustomer() < (weight+ 5) && p.getWeightOfCustomer() > (weight- 5))
+                                                                    .collect(Collectors.toList()));
 
     }
 }
