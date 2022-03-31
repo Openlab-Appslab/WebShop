@@ -43,6 +43,7 @@
                id="size"
                matInput
                name="size"
+               (keypress)="onlyNumbers($event)"
                placeholder="Enter size"
                required #size="ngModel">
       </mat-form-field>

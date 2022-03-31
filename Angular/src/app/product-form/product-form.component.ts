@@ -19,13 +19,18 @@ export class ProductFormComponent {
     this.product = new Product();
   }
 
-
-
   onSubmit() {
-    this.productService.save(this.product).subscribe(result => this.gotoProductList());
+    this.productService.save(this.product).subscribe(() => this.gotoProductList());
   }
 
   gotoProductList() {
     this.router.navigate(['/products']);
+  }
+
+  onlyNumbers($event: any) {
+    let inputChar = String.fromCharCode($event.charCode);
+    if (!/^[0-9]*$/.test(inputChar)) {
+      $event.preventDefault();
+    }
   }
 }
