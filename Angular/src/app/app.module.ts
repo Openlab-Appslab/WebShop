@@ -4,8 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserFormComponent } from './user-form/user-form.component';
 import { UserService } from './user.service';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductFormComponent } from './product-form/product-form.component';
@@ -31,8 +29,6 @@ import { ProductListDetailComponent } from './product-list-detail/product-list-d
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
-    UserFormComponent,
     ProductListComponent,
     ProductFormComponent,
     LandingComponent,
