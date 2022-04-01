@@ -33,4 +33,20 @@ export class ProductFormComponent {
       $event.preventDefault();
     }
   }
+
+  onlyNumbersAndSubmit($event: any) {
+    if ($event.keyCode != 13) {
+      let inputChar = String.fromCharCode($event.charCode);
+      if (!/^[0-9]*$/.test(inputChar)) {
+        $event.preventDefault();
+      }
+    }
+    else if ($event.keyCode === 13 && this.product.productSize && this.product.productParameters && this.product.productName && this.product.weightOfCustomer && this.product.heightOfCustomer) {
+      this.onSubmit();
+    }
+
+    else if ($event.keyCode === 13 && (!this.product.productSize || !this.product.productParameters || !this.product.productName || !this.product.weightOfCustomer || !this.product.heightOfCustomer)) {
+      alert('Please fill all inputs');
+    }
+  }
 }

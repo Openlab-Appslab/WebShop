@@ -3,4 +3,6 @@ export class Product {
   productName: string;
   productParameters: string;
   productSize: number;
+  weightOfCustomer: number;
+  heightOfCustomer: number;
 }
