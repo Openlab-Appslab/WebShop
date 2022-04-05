@@ -42,6 +42,7 @@ export class ProductFormComponent {
       }
     }
     else if ($event.keyCode === 13 && this.product.productSize && this.product.productParameters && this.product.productName && this.product.weightOfCustomer && this.product.heightOfCustomer) {
+      $event.preventDefault();
       this.onSubmit();
     }
 
