@@ -11,4 +11,6 @@ public interface ProductService {
     List<Product> returnLastTree();
 
     List<Product>getMeCustomer(int height , int weight);
+
+    void deleteProduct(Product product);
 }

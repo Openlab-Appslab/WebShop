@@ -24,6 +24,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public void deleteProduct(Product product) {
+        productRepository.delete(product);
+    }
+
+    @Override
     public void updateDate(int id) {
         Product myProduct = productRepository.findById(id);
         myProduct.setTimeOfClick(new Date(System.currentTimeMillis()));

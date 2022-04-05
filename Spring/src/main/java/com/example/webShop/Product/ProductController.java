@@ -52,6 +52,12 @@ public class ProductController {
         return productService.getProductIdealList();
 
     }
+
+    @PostMapping("/deleteProduct")
+    void deleteProduct(@RequestBody Product product) {
+        productService.deleteProduct(product);
+    }
+
 }
 
 

@@ -11,11 +11,13 @@ export class ProductService {
   private productsUrl: string;
   private lastOneUrl: string;
   private lastThreeUrl: string;
+  private deleteUrl: string;
 
   constructor(private http: HttpClient) {
     this.productsUrl = 'http://localhost:8080/products';
     this.lastOneUrl = 'http://localhost:8080/productsDetail';
     this.lastThreeUrl = 'http://localhost:8080/lastThree';
+    this.deleteUrl = 'http://localhost:8080/deleteProduct';
   }
 
   public findAll(): Observable<Product[]> {
@@ -32,5 +34,9 @@ export class ProductService {
 
   public LastThree(): Observable<Product[]> {
     return this.http.get<Product[]>(this.lastThreeUrl);
+  }
+
+  public delete(product: Product) {
+    return this.http.post<Product>(this.deleteUrl, product);
   }
 }

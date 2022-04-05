@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../product";
 import {ProductService} from "../product.service";
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,7 +12,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private authService: AuthService) { }
 
   public selected: string = 'ID';
   public isVisible: boolean = false;
@@ -89,5 +90,17 @@ export class ProductListComponent implements OnInit {
 
   lastTree(product: Product) {
     this.productService.lastOne(product).subscribe(() => {});
+  }
+
+  isAdminLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
+
+  deleteProduct(product: Product) {
+    this.productService.delete(product).subscribe(() => {
+      this.productService.findAll().subscribe(data => {
+        this.products = data;
+      });
+    });
   }
 }

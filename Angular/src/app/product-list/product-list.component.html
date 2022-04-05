@@ -36,6 +36,7 @@
         </mat-card-header>
         <mat-card-actions>
           <button class="detail_button" (click)="lastTree(product)" mat-button routerLink="/detail/{{product.id}}">Detail</button>
+          <button class="detail_button" mat-button *ngIf="isAdminLoggedIn()" (click)="deleteProduct(product)">Delete</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
