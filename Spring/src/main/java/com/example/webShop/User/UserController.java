@@ -1,19 +1,3 @@
-/*package com.example.webShop.User;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class UserController {
-
-    @GetMapping("/user")
-    public void getUser() {
-
-    }
-
-}
-*/
-
 package com.example.webShop.User;
 
 import org.springframework.web.bind.annotation.GetMapping;

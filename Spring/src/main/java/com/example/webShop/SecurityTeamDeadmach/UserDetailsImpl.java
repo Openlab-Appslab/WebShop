@@ -84,17 +84,16 @@ public class UserDetailsImpl implements UserDetails {
     }
 */
 
-    private String userName;
-    private String password;
-    private boolean active;
-    private List<GrantedAuthority> authorities;
+    private final String userName;
+    private final String password;
+    private final List<GrantedAuthority> authorities;
 
     public  UserDetailsImpl(User user){
         this.password = user.getPassword();
         this.userName = user.getUserName();
-        this.active =  user.isActive();
+        boolean active = user.isActive();
         this.authorities = Arrays.stream(user.getRoles().split(","))
-                .map(role -> new SimpleGrantedAuthority(role))
+                .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
 
     }
