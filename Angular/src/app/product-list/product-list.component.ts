@@ -12,7 +12,8 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private productService: ProductService, private authService: AuthService) { }
+  constructor(private productService: ProductService, private authService: AuthService) {
+  }
 
   public selected: string = 'ID';
   public isVisible: boolean = false;
@@ -26,35 +27,31 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.productService.findAll().subscribe(data => {
       this.products = data;
-  });
+    });
   }
 
-  changeState(){
+  changeState() {
     if (this.selected === 'Parameter') {
       this.products.sort((a, b) => (a.productParameters > b.productParameters) ? 1 : -1)
-    }
-
-    else if (this.selected === 'Name'){
+    } else if (this.selected === 'Name') {
       this.products.sort((a, b) => (a.productName > b.productName) ? 1 : -1)
-    }
-    else if (this.selected === 'ID'){
+    } else if (this.selected === 'ID') {
       this.products.sort((a, b) => (a.id > b.id) ? 1 : -1)
-    }
-    else{
+    } else {
       this.products.sort((a, b) => (a.productSize > b.productSize) ? 1 : -1)
     }
   }
 
   toggle() {
     this.isVisible = !this.isVisible;
-    if(this.isVisible)
+    if (this.isVisible)
       this.toggle_name = "Hide filter";
     else
       this.toggle_name = "Filter size";
   }
 
-  FilterSize(){
-    if (this.check_min_state && this.check_max_state){
+  FilterSize() {
+    if (this.check_min_state && this.check_max_state) {
       this.products = this.products.filter(value => value.productSize >= this.min_value);
       this.products = this.products.filter(value => value.productSize <= this.max_value);
     }
@@ -89,7 +86,8 @@ export class ProductListComponent implements OnInit {
   }
 
   lastTree(product: Product) {
-    this.productService.lastOne(product).subscribe(() => {});
+    this.productService.lastOne(product).subscribe(() => {
+    });
   }
 
   isAdminLoggedIn() {
@@ -101,6 +99,13 @@ export class ProductListComponent implements OnInit {
       this.productService.findAll().subscribe(data => {
         this.products = data;
       });
+    });
+  }
+
+  filterProduct(event: any) {
+    let searchValue = event.target.value;
+    this.productService.findAll().subscribe(data => {
+      this.products = data.filter(value => value.productName.toLowerCase().includes(searchValue.toLowerCase()));
     });
   }
 }
