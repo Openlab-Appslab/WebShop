@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Ideal Stick</h1>
+      <p>
+        <input type="text" class="form-control" placeholder="Enter your weight" [(ngModel)]="weight">
+      </p>
+      <p>
+        <input type="text" class="form-control" placeholder="Enter your height" [(ngModel)]="height">
+      </p>
+      <p>
+        <button class="btn btn-primary" (click)="calculate()">Calculate</button>
+      </p>
+    </div>
+    <ul>
+      <li *ngFor="let product of products">
+        <span>{{product.productName}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
