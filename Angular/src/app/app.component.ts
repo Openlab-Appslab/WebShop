@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from "./service/auth.service";
+import { HttpClient, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,41 @@ import {AuthService} from "./service/auth.service";
 export class AppComponent {
 
   title: string;
+  constructor(private httpClient: HttpClient) { }
 
-  constructor(private authService: AuthService) {
-    this.title = 'Spring Boot - Angular Application';
+  uploadedImage: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse: string;
+  image: any;
+
+  public onImageUpload({event}: { event: any }) {
+    this.uploadedImage = event.target.files[0];
+  }
+  imageUploadAction() {
+    const imageFormData = new FormData();
+    imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+
+
+    this.httpClient.post('http://localhost:8080/upload/image/', imageFormData, { observe: 'response' })
+      .subscribe((response) => {
+          if (response.status === 200) {
+            this.postResponse = response;
+            this.successResponse = this.postResponse.body.message;
+          } else {
+            this.successResponse = 'Image not uploaded due to some error!';
+          }
+        }
+      );
   }
 
-  isLoggedIn() {
-    return this.authService.isLoggedIn();
-  }
-
-  logout() {
-    this.authService.logout();
+  viewImage() {
+    this.httpClient.get('http://localhost:8080/get/image/info/' + this.image)
+      .subscribe(
+        res => {
+          this.postResponse = res;
+          this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+        }
+      );
   }
 }
