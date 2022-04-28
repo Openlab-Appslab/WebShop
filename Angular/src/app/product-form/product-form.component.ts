@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import { Product } from '../product';
 import {ProductService} from "../product.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-product-form',
@@ -11,11 +12,18 @@ import {ProductService} from "../product.service";
 export class ProductFormComponent {
 
   product: Product;
+  uploadedImage: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse: string;
+  image: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductService){
+    private productService: ProductService,
+    private httpClient: HttpClient
+  ){
     this.product = new Product();
   }
 
@@ -49,5 +57,35 @@ export class ProductFormComponent {
     else if ($event.keyCode === 13 && (!this.product.productSize || !this.product.productParameters || !this.product.productName || !this.product.weightOfCustomer || !this.product.heightOfCustomer)) {
       alert('Please fill all inputs');
     }
+  }
+
+  public onImageUpload({event}: { event: any }) {
+    this.uploadedImage = event.target.files[0];
+  }
+  imageUploadAction() {
+    const imageFormData = new FormData();
+    imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+
+
+    this.httpClient.post('http://localhost:8080/upload/image/', imageFormData, { observe: 'response' })
+      .subscribe((response) => {
+          if (response.status === 200) {
+            this.postResponse = response;
+            this.successResponse = this.postResponse.body.message;
+          } else {
+            this.successResponse = 'Image not uploaded due to some error!';
+          }
+        }
+      );
+  }
+
+  viewImage() {
+    this.httpClient.get('http://localhost:8080/get/image/info/' + this.image)
+      .subscribe(
+        res => {
+          this.postResponse = res;
+          this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+        }
+      );
   }
 }
