@@ -1,6 +1,7 @@
 package com.example.webShop.Product;
 
 
+import com.example.webShop.ImageThings.Image;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,4 +31,8 @@ public class Product {
     private int weightOfCustomer;
     @Column(name = "height_of_customer")
     private int heightOfCustomer;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_id", referencedColumnName = "id")
+    private Image image;
 }

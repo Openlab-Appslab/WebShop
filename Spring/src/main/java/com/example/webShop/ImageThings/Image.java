@@ -1,5 +1,6 @@
 package com.example.webShop.ImageThings;
 
+import com.example.webShop.Product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,4 +28,7 @@ public class Image {
 
 	@Column(name = "image", unique = false, nullable = false, length = 100000)
 	private byte[] image;
+
+	@OneToOne(mappedBy = "image")
+	private Product product;
 }
