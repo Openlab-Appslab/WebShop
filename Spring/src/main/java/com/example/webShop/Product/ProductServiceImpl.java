@@ -47,20 +47,19 @@ public class ProductServiceImpl implements ProductService {
         return productIdealList;
     }
 
-    public List<Product> setProductIdealList(List<Product> productIdealList) {
+    public void setProductIdealList(List<Product> productIdealList) {
         this.productIdealList = productIdealList;
-        return productIdealList;
     }
 
     List<Product> productIdealList;
 
    @Override
-    public List<Product> getMeCustomer(int height , int weight){
-     return setProductIdealList(productRepository.findAll().stream().filter(p -> p.getHeightOfCustomer() < (height + 5) && p.getHeightOfCustomer() > (height - 5)
-                                                                    && p.getWeightOfCustomer() < (weight+ 5) && p.getWeightOfCustomer() > (weight- 5))
-                                                                    .collect(Collectors.toList()));
+    public void getMeCustomer(int weight, int height){
+       setProductIdealList(productRepository.findAll().stream().filter(p -> p.getHeightOfCustomer() < (height + 5) && p.getHeightOfCustomer() > (height - 5)
+                       && p.getWeightOfCustomer() < (weight + 5) && p.getWeightOfCustomer() > (weight - 5))
+               .collect(Collectors.toList()));
 
-    }
+   }
 }
 
 

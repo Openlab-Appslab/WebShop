@@ -42,8 +42,9 @@ public class ProductController {
     }
 
     @PostMapping("/ideal")
-    void informationAboutCustomer(@RequestBody int weight,@RequestBody int height) {
-        productService.getMeCustomer(height, weight);
+    @ResponseBody
+    void informationAboutCustomer(@RequestBody Paramaters paramaters) {
+        productService.getMeCustomer(paramaters.getWeightInForm(), paramaters.getHeightInForm());
     }
 
     @GetMapping("/getIdeal")
