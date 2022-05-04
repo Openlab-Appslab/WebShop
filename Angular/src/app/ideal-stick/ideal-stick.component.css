@@ -1,0 +1,33 @@
+.mat-card{
+  padding: 100px;
+  height: 300px;
+  width: 300px;
+}
+.mat-card:hover{
+  background-color: #f5f5f5;
+}
+.mat-card-title{
+  text-align: center;
+}
+.mat-card-actions{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.mat-card-header{
+  display: flex;
+  justify-content: center;
+}
+.detail_button:hover{
+  border: 2px solid black;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 20%;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+

@@ -1,22 +1,54 @@
 <div class="container">
-  <div class="row">
     <div class="col-md-12">
       <h1>Ideal Stick</h1>
-      <p>
-        <input type="text" class="form-control" placeholder="Enter your weight" [(ngModel)]="weight">
-      </p>
-      <p>
-        <input type="text" class="form-control" placeholder="Enter your height" [(ngModel)]="height">
-      </p>
-      <p>
-        <button class="btn btn-primary" (click)="calculate()">Calculate</button>
-      </p>
-    </div>
-    <ul>
-      <li *ngFor="let product of products">
-        <span>{{product.productName}}</span>
-      </li>
-    </ul>
-  </div>
-</div>
+      <div class="form-group">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Weight</mat-label>
+          <input type="text" [(ngModel)]="parameters.weightInForm"
+                 id="weight"
+                 matInput
+                 (keyup)="calculate()"
+                 name="weight"
+                 placeholder="Enter your weight"
+                 required #weight="ngModel">
+        </mat-form-field>
+        <div *ngIf="weight.invalid && (weight.dirty || weight.touched)"
+             class="alert alert-danger">
 
+          <div *ngIf="weight.errors?.['required']">
+            Weight is required
+          </div>
+        </div>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Height</mat-label>
+          <input type="text" [(ngModel)]="parameters.heightInForm"
+                 id="height"
+                 matInput
+                 (keyup)="calculate()"
+                 name="height"
+                 placeholder="Enter your height"
+                 required #height="ngModel">
+        </mat-form-field>
+        <div *ngIf="height.invalid && (height.dirty || height.touched)"
+             class="alert alert-danger">
+
+          <div *ngIf="height.errors?.['required']">
+            Height is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-grid-list cols="3" rowHeight="350">
+      <mat-grid-tile *ngFor="let product of products">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{product.productName}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <button class="detail_button" (click)="lastTree(product)" mat-button routerLink="/detail/{{product.id}}">Detail</button>
+            <button class="detail_button" mat-button *ngIf="isAdminLoggedIn()" (click)="deleteProduct(product)">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+</div>

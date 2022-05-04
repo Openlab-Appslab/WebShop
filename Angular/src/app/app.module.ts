@@ -25,6 +25,7 @@ import {MatCardModule} from "@angular/material/card";
 import { LastThreeComponent } from './last-three/last-three.component';
 import { ProductListDetailComponent } from './product-list-detail/product-list-detail.component';
 import { IdealStickComponent } from './ideal-stick/ideal-stick.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -38,27 +39,28 @@ import { IdealStickComponent } from './ideal-stick/ideal-stick.component';
     ProductListDetailComponent,
     IdealStickComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatSlideToggleModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatGridListModule,
-    MatCardModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatSlideToggleModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatGridListModule,
+        MatCardModule,
+        MatProgressBarModule,
+    ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })

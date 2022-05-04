@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {Product} from "./product";
+import {Parameters} from "./parameters";
 
 @Injectable({
   providedIn: 'root'
@@ -44,8 +45,8 @@ export class ProductService {
     return this.http.post<Product>(this.deleteUrl, product);
   }
 
-  public ideal(weight: number, height: number) {
-    return this.http.post<Product>(this.idealUrl, {weight, height});
+  public ideal(ideal: Parameters) {
+    return this.http.post<Parameters>(this.idealUrl, ideal);
   }
 
   public getIdeal(): Observable<Product[]> {
