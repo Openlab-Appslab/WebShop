@@ -20,13 +20,18 @@ export class LoginComponent {
     private readonly router: Router
   ) { }
 
+  skuska: boolean = false;
+
   login(): void {
     if (this.loginGroup.valid) {
       const username = this.loginGroup.value.username;
+      // if username is admin, skuska is true
+      if (username === 'admin') {
+        this.skuska = true;
+      }
       const password = this.loginGroup.value.password;
       this.authService.login(username, password)
         .subscribe(() => this.router.navigateByUrl('/products'));
     }
   }
-
 }

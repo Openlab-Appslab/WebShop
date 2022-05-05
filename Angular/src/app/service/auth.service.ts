@@ -9,6 +9,7 @@ import { tap } from 'rxjs/operators';
 export class AuthService {
 
   token: string;
+  isAdminLoggedIn: boolean = false;
 
   constructor(
     private readonly httpClient: HttpClient
@@ -23,6 +24,9 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
+    if (username === 'admin' && password === 'pass') {
+      this.isAdminLoggedIn = true;
+    }
     const info = btoa(`${username}:${password}`);
     const token = `Basic ${info}`;
     const options = {

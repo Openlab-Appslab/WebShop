@@ -35,7 +35,7 @@ export class IdealStickComponent implements OnInit {
   }
 
   isAdminLoggedIn() {
-    return this.authService.isLoggedIn();
+    return this.authService.isAdminLoggedIn;
   }
 
   deleteProduct(product: Product) {
