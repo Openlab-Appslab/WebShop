@@ -52,12 +52,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     List<Product> productIdealList;
-
-
+     int deviation = 5;
    @Override
     public void getMeCustomer(int weight, int height){
-       setProductIdealList(productRepository.findAll().stream().filter(p -> p.getHeightOfCustomer() < (height + 5) && p.getHeightOfCustomer() > (height - 5)
-                       && p.getWeightOfCustomer() < (weight + 5) && p.getWeightOfCustomer() > (weight - 5))
+       setProductIdealList(productRepository.findAll().stream().filter(p -> p.getHeightOfCustomer() < (height + deviation) && p.getHeightOfCustomer() > (height - deviation)
+                       && p.getWeightOfCustomer() < (weight + deviation) && p.getWeightOfCustomer() > (weight - deviation))
                .collect(Collectors.toList()));
 
    }
