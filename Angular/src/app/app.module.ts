@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UserService } from './user.service';
 import { ProductListComponent } from './product-list/product-list.component';
@@ -26,6 +26,7 @@ import { LastThreeComponent } from './last-three/last-three.component';
 import { ProductListDetailComponent } from './product-list-detail/product-list-detail.component';
 import { IdealStickComponent } from './ideal-stick/ideal-stick.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {AuthInterceptor} from "./interceptor/auth.interceptor";
 
 
 @NgModule({
@@ -61,7 +62,10 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
         MatCardModule,
         MatProgressBarModule,
     ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

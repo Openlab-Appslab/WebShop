@@ -53,6 +53,7 @@ public class ProductServiceImpl implements ProductService {
 
     List<Product> productIdealList;
 
+
    @Override
     public void getMeCustomer(int weight, int height){
        setProductIdealList(productRepository.findAll().stream().filter(p -> p.getHeightOfCustomer() < (height + 5) && p.getHeightOfCustomer() > (height - 5)
