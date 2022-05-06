@@ -1,6 +1,9 @@
 package com.example.webShop.Product;
 
 
+import com.example.webShop.ImageThings.Image;
+import com.example.webShop.ImageThings.ImageController;
+import com.example.webShop.ImageThings.ImageRepository;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +21,9 @@ public class ProductController {
     @Autowired
     private ProductServiceImpl productService;
 
+    @Autowired
+    private ImageRepository imageRepository;
+
     @GetMapping("/products")
     public List<Product> getProduct() {
         return productRepository.findAll();
@@ -25,7 +31,9 @@ public class ProductController {
 
     @PostMapping("/products")
     void addProduct(@RequestBody Product product) {
+//        product.setImage(imageRepository.getById(6L));
         productService.saveProduct(product);
+
     }
 
     @PostMapping("/productsDetail")

@@ -35,4 +35,8 @@ public class Product {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id", referencedColumnName = "id")
     private Image image;
+
+    public Product(Product product, Image image){
+
+    }
 }

@@ -6,6 +6,7 @@
 
 package com.example.webShop.SecurityTeamDeadmach;
 
+import com.example.webShop.InformationPage.Information;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -17,6 +18,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -43,6 +46,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/ideal").permitAll()
                 .antMatchers(HttpMethod.POST, "/productsDetail").permitAll()
                 .antMatchers(HttpMethod.GET, "/getIdeal").permitAll()
+                .antMatchers(HttpMethod.POST, "/saveInfoAboutSport").permitAll()
+                .antMatchers(HttpMethod.GET, "/infoAboutSport").permitAll()
                 .antMatchers(HttpMethod.POST,"/deleteProduct").hasAnyAuthority("ADMIN")
                 .antMatchers(HttpMethod.GET,"/products").permitAll()
                 .antMatchers(HttpMethod.POST, "/products").hasAnyAuthority("ADMIN")
