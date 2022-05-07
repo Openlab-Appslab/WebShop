@@ -1,0 +1,16 @@
+div{
+  position: relative;
+  margin-left: 4em;
+}
+
+h1{
+  color: crimson;
+  font-weight: bold;
+  font-size: xxx-large;
+}
+
+h2{
+  color: darkblue;
+  font-weight: bold;
+  font-size: x-large;
+}

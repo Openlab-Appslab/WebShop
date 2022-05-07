@@ -7,6 +7,7 @@ import {AuthGuard} from "./guard/auth.guard";
 import {LastThreeComponent} from "./last-three/last-three.component";
 import {ProductListDetailComponent} from "./product-list-detail/product-list-detail.component";
 import {IdealStickComponent} from "./ideal-stick/ideal-stick.component";
+import {InformationPageComponent} from "./information-page/information-page.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'addproducts', component: ProductFormComponent, canActivate: [AuthGuard] },
   { path: 'lastthree', component: LastThreeComponent },
   { path: 'detail/:id', component: ProductListDetailComponent },
-  { path: 'idealstick', component: IdealStickComponent }
+  { path: 'idealstick', component: IdealStickComponent },
+  { path: 'infoaboutsport', component: InformationPageComponent }
 ];
 
 @NgModule({

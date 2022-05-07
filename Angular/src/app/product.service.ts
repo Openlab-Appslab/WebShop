@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {Product} from "./product";
 import {Parameters} from "./parameters";
+import {InformationPageComponent} from "./information-page/information-page.component";
+import {InformationPage} from "./informationPage";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,8 @@ export class ProductService {
   private deleteUrl: string;
   private idealUrl: string;
   private getIdealUrl: string;
+  private getInfoAboutUrl: string;
+  private saveInfoAboutUrl: string;
 
   constructor(private http: HttpClient) {
     this.productsUrl = 'http://localhost:8080/products';
@@ -23,6 +27,8 @@ export class ProductService {
     this.deleteUrl = 'http://localhost:8080/deleteProduct';
     this.idealUrl = 'http://localhost:8080/ideal';
     this.getIdealUrl = 'http://localhost:8080/getIdeal';
+    this.getInfoAboutUrl = 'http://localhost:8080/infoAboutSport';
+    this.saveInfoAboutUrl = 'http://localhost:8080/saveInfoAboutSport';
   }
 
   public findAll(): Observable<Product[]> {
@@ -51,5 +57,13 @@ export class ProductService {
 
   public getIdeal(): Observable<Product[]> {
     return this.http.get<Product[]>(this.getIdealUrl);
+  }
+
+  public getInfoAbout(): Observable<InformationPage> {
+    return this.http.get<InformationPage>(this.getInfoAboutUrl);
+  }
+
+  public saveInfoAbout(informationPage: InformationPage) {
+    return this.http.post<Product>(this.saveInfoAboutUrl, informationPage);
   }
 }

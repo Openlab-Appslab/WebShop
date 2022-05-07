@@ -1,12 +1,9 @@
-<mat-grid-list cols="3" rowHeight="350">
-
-    <mat-card class="example-card" >
-      <mat-card-header>
-        <mat-card-title>{{}}</mat-card-title>
-      </mat-card-header>
-      <mat-card-actions>
-        <button class="detail_button" routerLink="/detail/{}" mat-button>Detail</button>
-      </mat-card-actions>
-    </mat-card>
-
-</mat-grid-list>
+<div>
+  <h1>Florball Theory:</h1>
+  <h2>History of the sport:</h2>
+    <p>{{informationPage.history}}</p>
+  <h2>Equipment of the sport:</h2>
+  <p>{{informationPage.equipment}}</p>
+  <h2>Rules of the sport:</h2>
+  <p>{{informationPage.rules}}</p>
+</div>

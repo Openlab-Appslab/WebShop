@@ -27,6 +27,7 @@ import { ProductListDetailComponent } from './product-list-detail/product-list-d
 import { IdealStickComponent } from './ideal-stick/ideal-stick.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
+import {InformationPageComponent} from "./information-page/information-page.component";
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {AuthInterceptor} from "./interceptor/auth.interceptor";
     LoginComponent,
     LastThreeComponent,
     ProductListDetailComponent,
-    IdealStickComponent
+    IdealStickComponent,
+    InformationPageComponent
   ],
     imports: [
         BrowserModule,
