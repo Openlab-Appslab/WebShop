@@ -18,7 +18,7 @@ public class InformationController {
 
     @GetMapping("/infoAboutSport")
     public Information getMeInfoAbout(){
-     return informationRepository.findById(37);
+     return  informationRepository.findFirstBy();
     }
 
 
