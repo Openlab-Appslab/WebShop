@@ -5,6 +5,7 @@ import {Product} from "./product";
 import {Parameters} from "./parameters";
 import {InformationPageComponent} from "./information-page/information-page.component";
 import {InformationPage} from "./informationPage";
+import {Feedback} from "./feedback";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,8 @@ export class ProductService {
   private getIdealUrl: string;
   private getInfoAboutUrl: string;
   private saveInfoAboutUrl: string;
+  private addConplaintUrl: string;
+  private showFeedbackUrl: string;
 
   constructor(private http: HttpClient) {
     this.productsUrl = 'http://localhost:8080/products';
@@ -29,6 +32,9 @@ export class ProductService {
     this.getIdealUrl = 'http://localhost:8080/getIdeal';
     this.getInfoAboutUrl = 'http://localhost:8080/infoAboutSport';
     this.saveInfoAboutUrl = 'http://localhost:8080/saveInfoAboutSport';
+    this.addConplaintUrl = 'http://localhost:8080/addComplaint';
+    this.showFeedbackUrl = 'http://localhost:8080/feedback'
+
   }
 
   public findAll(): Observable<Product[]> {
@@ -65,5 +71,13 @@ export class ProductService {
 
   public saveInfoAbout(informationPage: InformationPage) {
     return this.http.post<Product>(this.saveInfoAboutUrl, informationPage);
+  }
+
+  public addComplaint(feedback: Feedback){
+    return this.http.post<Feedback>(this.addConplaintUrl, feedback);
+  }
+
+  public showFeedback(): Observable<Feedback>{
+    return this.http.get<Feedback>(this.showFeedbackUrl);
   }
 }

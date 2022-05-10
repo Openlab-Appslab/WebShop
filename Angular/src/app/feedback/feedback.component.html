@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="col-md-12">
+    <h1>Contact</h1>
+    <div class="form-group">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Weight</mat-label>
+        <input type="text" [(ngModel)]="feedback.nameOfCustomer"
+               id="nameOfCustomer"
+               name="nameOfCustomer"
+               placeholder="Enter your name"
+               required #nameOfCustomer="ngModel">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Height</mat-label>
+        <input type="text" [(ngModel)]="feedback.complaint"
+               id="complaint"
+               name="complaint"
+               placeholder="Enter your complaint"
+               required #complaint="ngModel">
+      </mat-form-field>
+        </div>
+      </div>
+</div>

@@ -28,6 +28,7 @@ import { IdealStickComponent } from './ideal-stick/ideal-stick.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {InformationPageComponent} from "./information-page/information-page.component";
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {InformationPageComponent} from "./information-page/information-page.comp
     LastThreeComponent,
     ProductListDetailComponent,
     IdealStickComponent,
-    InformationPageComponent
+    InformationPageComponent,
+    FeedbackComponent
   ],
     imports: [
         BrowserModule,
