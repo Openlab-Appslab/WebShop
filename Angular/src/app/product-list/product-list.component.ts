@@ -50,24 +50,24 @@ export class ProductListComponent implements OnInit {
       this.toggle_name = "Filter size";
   }
 
-  FilterSize() {
+  filterSize() {
     if (this.check_min_state && this.check_max_state) {
       this.products = this.products.filter(value => value.productSize >= this.min_value);
       this.products = this.products.filter(value => value.productSize <= this.max_value);
     }
   }
 
-  OnMaxChange(value: any) {
+  onMaxChange(value: any) {
     this.max_value = value;
     this.check_max_state = this.max_value != '';
   }
 
-  OnMinChange(value: any) {
+  onMinChange(value: any) {
     this.min_value = value;
     this.check_min_state = this.min_value != '';
   }
 
-  ResetFilter() {
+  resetFilter() {
     this.min_value = '';
     this.max_value = '';
     this.productService.findAll().subscribe(data => {

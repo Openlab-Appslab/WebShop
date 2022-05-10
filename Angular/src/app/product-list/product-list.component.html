@@ -15,16 +15,16 @@
     <div>
       <mat-form-field class="mat_input" appearance="fill">
         <mat-label>Min. size</mat-label>
-        <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="OnMinChange($event)" [(ngModel)]="min_value" placeholder="type only number">
+        <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMinChange($event)" [(ngModel)]="min_value" placeholder="type only number">
       </mat-form-field>
     </div>
     <mat-form-field class="mat_input" appearance="fill">
       <mat-label>Max. size</mat-label>
-      <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="OnMaxChange($event)" [(ngModel)]="max_value" placeholder="type only number">
+      <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMaxChange($event)" [(ngModel)]="max_value" placeholder="type only number">
     </mat-form-field>
     <div>
-      <button mat-raised-button color="primary" class="apply" (click)="FilterSize()">Apply filter</button>
-      <button mat-raised-button color="warn" class="reset" (click)="ResetFilter()">Reset filter</button>
+      <button mat-raised-button color="primary" class="apply" (click)="filterSize()">Apply filter</button>
+      <button mat-raised-button color="warn" class="reset" (click)="resetFilter()">Reset filter</button>
     </div>
   </div>
 
@@ -34,6 +34,9 @@
     <input matInput (keyup)="filterProduct($event)" placeholder="Search">
   </mat-form-field>
 
+  <h1>Last viewed</h1>
+  <app-last-three></app-last-three>
+  <h1>Products</h1>
   <mat-grid-list cols="3" rowHeight="350">
     <mat-grid-tile *ngFor="let product of products">
       <mat-card class="example-card">
