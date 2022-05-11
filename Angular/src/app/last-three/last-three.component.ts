@@ -14,7 +14,7 @@ export class LastThreeComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.LastThree().subscribe(data => {
+    this.productService.lastThree().subscribe(data => {
       this.products = data;
     });
   }

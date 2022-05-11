@@ -29,6 +29,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {InformationPageComponent} from "./information-page/information-page.component";
 import { FeedbackComponent } from './feedback/feedback.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
         MatGridListModule,
         MatCardModule,
         MatProgressBarModule,
+        NgbModule,
     ],
   providers: [
     UserService,

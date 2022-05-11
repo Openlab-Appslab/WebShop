@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {Product} from "./product";
 import {Parameters} from "./parameters";
-import {InformationPageComponent} from "./information-page/information-page.component";
 import {InformationPage} from "./informationPage";
 import {Feedback} from "./feedback";
 
@@ -49,7 +48,7 @@ export class ProductService {
     return this.http.post<Product>(this.lastOneUrl, product);
   }
 
-  public LastThree(): Observable<Product[]> {
+  public lastThree(): Observable<Product[]> {
     return this.http.get<Product[]>(this.lastThreeUrl);
   }
 

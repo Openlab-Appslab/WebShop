@@ -2,3 +2,12 @@ div{
   position: relative;
   margin-left: 4em;
 }
+
+ngb-rating{
+  font-size: 2em;
+  color: #FFD600;
+}
+
+pre{
+  font-size: 1em;
+}
