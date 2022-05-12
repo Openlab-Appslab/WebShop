@@ -14,4 +14,8 @@ public class FeedbackServiceImpl implements FeedbackService {
     public void saveFeedback(Feedback feedback) {
         feedbackRepository.save(feedback);
     }
+
+    public void deleteFeedback(Feedback feedback) {
+        feedbackRepository.delete(feedback);
+    }
 }

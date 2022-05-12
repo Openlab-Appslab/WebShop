@@ -53,6 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/addNewRating").permitAll()
                 .antMatchers(HttpMethod.POST, "/addComplaint").permitAll()
                 .antMatchers(HttpMethod.GET,"/feedback").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/deleteComplaint").hasAnyAuthority("ADMIN")
                 .antMatchers(HttpMethod.GET,"/products").permitAll()
                 .antMatchers(HttpMethod.POST, "/products").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()

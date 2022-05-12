@@ -28,4 +28,9 @@ public class FeedbackController {
         feedbackService.saveFeedback(feedback);
     }
 
+    @PostMapping("/deleteComplaint")
+    public void deleteFeedback(@RequestBody Feedback feedback){
+        feedbackService.deleteFeedback(feedback);
+    }
+
 }

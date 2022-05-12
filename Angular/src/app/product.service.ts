@@ -21,6 +21,7 @@ export class ProductService {
   private saveInfoAboutUrl: string;
   private addConplaintUrl: string;
   private showFeedbackUrl: string;
+  private deleteComplaintUrl: string;
 
   constructor(private http: HttpClient) {
     this.productsUrl = 'http://localhost:8080/products';
@@ -32,8 +33,8 @@ export class ProductService {
     this.getInfoAboutUrl = 'http://localhost:8080/infoAboutSport';
     this.saveInfoAboutUrl = 'http://localhost:8080/saveInfoAboutSport';
     this.addConplaintUrl = 'http://localhost:8080/addComplaint';
-    this.showFeedbackUrl = 'http://localhost:8080/feedback'
-
+    this.showFeedbackUrl = 'http://localhost:8080/feedback';
+    this.deleteComplaintUrl = 'http://localhost:8080/deleteComplaint';
   }
 
   public findAll(): Observable<Product[]> {
@@ -76,7 +77,11 @@ export class ProductService {
     return this.http.post<Feedback>(this.addConplaintUrl, feedback);
   }
 
-  public showFeedback(): Observable<Feedback>{
-    return this.http.get<Feedback>(this.showFeedbackUrl);
+  public showFeedback(): Observable<Feedback[]>{
+    return this.http.get<Feedback[]>(this.showFeedbackUrl);
+  }
+
+  public deleteFeedback(feedback: Feedback){
+    return this.http.post<Feedback>(this.deleteComplaintUrl, feedback);
   }
 }

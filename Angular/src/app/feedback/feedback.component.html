@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container" *ngIf="!isAdmin()">
+  <form [formGroup]="feedbackForm" (ngSubmit)="completeLogin()">
   <div class="col-md-12">
     <h1>Contact</h1>
     <div class="form-group">
@@ -7,10 +8,16 @@
         <input type="text" [(ngModel)]="feedback.nameOfCustomer"
                id="nameOfCustomer"
                name="nameOfCustomer"
+               formControlName="nameOfCustomer"
                class="form-control"
                placeholder="Enter your name"
                required>
       </mat-form-field>
+      <mat-error *ngIf="feedbackForm.controls['nameOfCustomer'].invalid && feedbackForm.controls['nameOfCustomer'].touched">
+        <span *ngIf="feedbackForm.controls['nameOfCustomer'].errors.required">
+          Name is required
+        </span>
+      </mat-error>
     </div>
     <div class="form-group">
       <mat-form-field class="example-full-width" appearance="fill">
@@ -18,10 +25,20 @@
         <input type="email" [(ngModel)]="feedback.email"
                id="email"
                name="email"
+               formControlName="email"
                class="form-control"
                placeholder="Enter your email"
-               required>
+               required
+        email>
       </mat-form-field>
+      <mat-error *ngIf="feedbackForm.controls.email.invalid && feedbackForm.controls.email.touched">
+        <span *ngIf="feedbackForm.controls.email.errors.required">
+          Email is required
+        </span>
+        <span *ngIf="feedbackForm.controls.email.errors.email">
+          Email is invalid
+        </span>
+      </mat-error>
     </div>
     <div class="form-group">
       <mat-form-field class="example-full-width" appearance="fill">
@@ -29,14 +46,51 @@
         <textarea [(ngModel)]="feedback.complaint"
                   id="complaint"
                   name="complaint"
+                  formControlName="complaint"
                   class="form-control"
                   placeholder="Enter your complaint"
                   required></textarea>
       </mat-form-field>
+      <mat-error *ngIf="feedbackForm.controls.complaint.invalid && feedbackForm.controls.complaint.touched">
+        <span *ngIf="feedbackForm.controls.complaint.errors.required">
+          Complaint is required
+        </span>
+      </mat-error>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-primary"
-              (click)="onSubmit()">Submit</button>
+      <button type="submit" [disabled]="!feedbackForm.valid" class="btn btn-info">Submit</button>
+      <div *ngIf="success" class="alert alert-success">
+        <strong>Success!</strong> Your feedback was submitted successfully.
+    </div>
+  </div>
+  </div>
+  </form>
+</div>
+
+<div class="container" *ngIf="isAdmin()">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Feedbacks</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Complaint</th>
+            <th>Complete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let feedback of getFeedback">
+            <td>{{feedback.nameOfCustomer}}</td>
+            <td>{{feedback.email}}</td>
+            <td>{{feedback.complaint}}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteFeedback(feedback)">Done</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

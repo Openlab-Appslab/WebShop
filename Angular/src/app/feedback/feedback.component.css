@@ -1,4 +1,20 @@
 div{
   position: relative;
   margin-left: 4em;
+  margin-top: 1em;
+}
+textarea{
+  resize: both;
+}
+.alert-success{
+  text-align: center;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 50%;
 }
