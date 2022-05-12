@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {InformationPage} from "../informationPage";
 import {ProductService} from "../product.service";
 import {Feedback} from "../feedback";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-feedback',
@@ -10,13 +10,19 @@ import {Feedback} from "../feedback";
 })
 export class FeedbackComponent implements OnInit {
 
+  getFeedback$: Observable<Feedback>;
   feedback: Feedback;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {
+    this.feedback = new Feedback();
+  }
 
   ngOnInit(): void {
-    this.productService.showFeedback().subscribe(data =>{
-      this.feedback = data;
-    })
+    this.getFeedback$ = this.productService.showFeedback();
+    }
+
+  onSubmit() {
+   this.productService.addComplaint(this.feedback).subscribe();
   }
+
 }

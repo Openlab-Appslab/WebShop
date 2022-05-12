@@ -21,6 +21,6 @@ public class Feedback {
 
     private String nameOfCustomer;
     private String complaint;
-
+    private String email;
 
 }
