@@ -1,12 +1,12 @@
 package com.example.webShop.Product;
 
 
-import com.example.webShop.ImageThings.Image;
-import com.example.webShop.ImageThings.ImageController;
 import com.example.webShop.ImageThings.ImageRepository;
+import com.example.webShop.Rating.RatingRepository;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
@@ -24,9 +24,14 @@ public class ProductController {
     @Autowired
     private ImageRepository imageRepository;
 
+    @Autowired
+    private RatingRepository ratingRepository;
+
+
     @GetMapping("/products")
     public List<Product> getProduct() {
         return productRepository.findAll();
+
     }
 
     @PostMapping("/products")
@@ -62,6 +67,8 @@ public class ProductController {
     void deleteProduct(@RequestBody Product product) {
         productService.deleteProduct(product);
     }
+
+
 
 }
 

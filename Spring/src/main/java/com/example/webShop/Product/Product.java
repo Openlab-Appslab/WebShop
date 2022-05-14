@@ -2,12 +2,13 @@ package com.example.webShop.Product;
 
 
 import com.example.webShop.ImageThings.Image;
+import com.example.webShop.Rating.Rating;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "product")
@@ -37,6 +38,9 @@ public class Product {
     private Image image;
 
     public Product(Product product, Image image){
-
     }
+
+
+
+
 }

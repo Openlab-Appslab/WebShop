@@ -1,6 +1,8 @@
 package com.example.webShop.Product;
 
 
+import com.example.webShop.Rating.Rating;
+import com.example.webShop.Rating.RatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private final ProductRepository productRepository;
+
+    @Autowired
+    private RatingRepository ratingRepository;
 
     @Autowired
     public ProductServiceImpl(ProductRepository productRepository){
@@ -60,7 +65,14 @@ public class ProductServiceImpl implements ProductService {
                .collect(Collectors.toList()));
 
    }
-}
+
+//    Rating rating = new Rating(5, productRepository.findById(21) );
+//    Rating rating2 = new Rating(4, productRepository.findById(21) );
+//    List<Rating> ratings = Arrays.asList(rating, rating2);
+//    ratingRepository.save(ratings);
+
+    }
+
 
 
 

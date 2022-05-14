@@ -1,5 +1,6 @@
 package com.example.webShop.Rating;
 
+import com.example.webShop.Product.Product;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,7 @@ public class RatingController {
 
     @PostMapping("/addNewRating")
     public void addNewRating(@RequestBody Rating rating){
+
         ratingService.addRating(rating);
     }
 }
