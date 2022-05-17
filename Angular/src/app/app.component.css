@@ -55,5 +55,9 @@ mat-sidenav-container {
   border-radius: 10px;
   padding: 16px;
   text-align: center;
-  margin-left: 88%;
+  margin-left: 93%;
+  position: fixed;
+}
+span{
+  margin-left: 44em;
 }

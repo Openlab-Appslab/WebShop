@@ -10,6 +10,7 @@ export class AuthService {
 
   token: string;
   isAdminLoggedIn: boolean = false;
+  whoIsLoggedIn: string;
 
   constructor(
     private readonly httpClient: HttpClient
@@ -27,6 +28,7 @@ export class AuthService {
     if (username === 'admin' && password === 'pass') {
       this.isAdminLoggedIn = true;
     }
+    this.whoIsLoggedIn = username;
     const info = btoa(`${username}:${password}`);
     const token = `Basic ${info}`;
     const options = {
@@ -41,8 +43,10 @@ export class AuthService {
     );
   }
 
+
   logout(): void {
     this.token = null;
+    this.whoIsLoggedIn = '';
   }
 
 }

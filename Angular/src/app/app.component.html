@@ -1,5 +1,6 @@
 <mat-toolbar>
   Florball shop
+  <span class="username">{{getWhoIsLoggedIn()}}</span>
   <a routerLink="/login" *ngIf="!isLoggedIn()" class="toolbar_login">Login</a>
   <a routerLink="/login" *ngIf="isLoggedIn()" (click)="logout()" class="toolbar_login">Logout</a>
 </mat-toolbar>
@@ -25,7 +26,7 @@
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>
-                <h2 class="card-title">{{ title }}</h2>
+    <br>
             <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

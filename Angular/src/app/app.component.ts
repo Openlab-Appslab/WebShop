@@ -8,19 +8,22 @@ import {AuthService} from "./service/auth.service";
 })
 export class AppComponent {
 
-  title: string;
 
   constructor(private authService: AuthService) {
-    this.title = 'Spring Boot - Angular Application';
   }
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }
 
+  getWhoIsLoggedIn(): string {
+    return this.authService.whoIsLoggedIn;
+  }
+
   logout() {
     this.authService.logout();
     this.authService.isAdminLoggedIn = false;
+    this.authService.whoIsLoggedIn = '';
   }
 
   isAdminLoggedIn() {
