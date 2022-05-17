@@ -3,6 +3,7 @@ package com.example.webShop.Product;
 
 import com.example.webShop.ImageThings.Image;
 import com.example.webShop.Rating.Rating;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -40,6 +41,9 @@ public class Product {
     public Product(Product product, Image image){
     }
 
+
+    @OneToMany(mappedBy="product")
+    private Set<Rating> ratings;
 
 
 
