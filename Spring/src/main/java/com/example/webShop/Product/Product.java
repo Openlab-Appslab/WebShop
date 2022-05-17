@@ -41,7 +41,7 @@ public class Product {
     public Product(Product product, Image image){
     }
 
-
+    @JsonIgnore
     @OneToMany(mappedBy="product")
     private Set<Rating> ratings;
 

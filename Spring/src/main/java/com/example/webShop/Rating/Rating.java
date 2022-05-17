@@ -3,6 +3,7 @@ package com.example.webShop.Rating;
 
 import com.example.webShop.Product.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +24,7 @@ public class Rating {
     private int numberOfStar;
 
 
-    @JsonIgnore
+
     @ManyToOne
     Product product;
 
