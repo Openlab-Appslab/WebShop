@@ -30,6 +30,7 @@ import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {InformationPageComponent} from "./information-page/information-page.component";
 import { FeedbackComponent } from './feedback/feedback.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatTreeModule} from "@angular/material/tree";
 
 
 @NgModule({
@@ -45,29 +46,30 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     InformationPageComponent,
     FeedbackComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatIconModule,
-        MatDividerModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatOptionModule,
-        MatSlideToggleModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatGridListModule,
-        MatCardModule,
-        MatProgressBarModule,
-        NgbModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSlideToggleModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatProgressBarModule,
+    NgbModule,
+    MatTreeModule,
+  ],
   providers: [
     UserService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

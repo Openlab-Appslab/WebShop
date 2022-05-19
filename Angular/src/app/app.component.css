@@ -5,7 +5,7 @@ mat-toolbar {
 
 mat-sidenav {
   margin: 16px;
-  width: 180px;
+  width: 280px;
   border-right: none;
   background: #002b5c;
   color: white;
@@ -60,4 +60,36 @@ mat-sidenav-container {
 }
 span{
   margin-left: 44em;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.example-tree .mat-nested-tree-node div[role=group] {
+  padding-left: 40px;
+}
+
+.example-tree div[role=group] > .mat-tree-node {
+  padding-left: 40px;
+}
+.mat-tree-node{
+  background-color: #002b5c;
+  color: white;
+}
+div{
+  background-color: #002b5c;
+}
+.text-center{
+  display: inline-grid;
+}
+.btn{
+  font-size: 20px;
 }
