@@ -66,11 +66,6 @@ public class ProductServiceImpl implements ProductService {
 
    }
 
-//    Rating rating = new Rating(5, productRepository.findById(21) );
-//    Rating rating2 = new Rating(4, productRepository.findById(21) );
-//    List<Rating> ratings = Arrays.asList(rating, rating2);
-//    ratingRepository.save(ratings);
-
     }
 
 
