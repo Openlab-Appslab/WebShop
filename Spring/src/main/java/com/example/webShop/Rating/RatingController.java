@@ -30,8 +30,8 @@ public class RatingController {
     }
 
     @GetMapping("/aaa")
-    public OptionalDouble getmemotherfucker(){
-        return ratingService.getmethat();
-    //return ratingService.getaverage();
+    public OptionalDouble getMeActualAverage(){
+    //    return ratingService.getmethat();
+    return ratingService.getAverage();
     }
 }

@@ -34,9 +34,9 @@ public class Product {
     @Column(name = "height_of_customer")
     private int heightOfCustomer;
 
-    //S Tymto to proste blblo a nešlo
-//    @Column(name = "rating_average")
-//    private double ratingAverage = 0;
+    //Tymto to proste blblo a nešlo
+    @Column(name = "rating_average")
+    private double ratingAverage;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id", referencedColumnName = "id")
