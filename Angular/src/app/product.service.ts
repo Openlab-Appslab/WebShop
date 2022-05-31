@@ -90,8 +90,8 @@ export class ProductService {
     return this.http.post<Feedback>(this.deleteComplaintUrl, feedback);
   }
 
-  public sendRating(rating: Rating, product: Product){
-    return this.http.post<Rating>(this.sendRatingUrl, {rating: rating, product: product});
+  public sendRating(rating: number, product: Product){
+    return this.http.post<Rating>(this.sendRatingUrl, {"numberOfStar" : rating, product: product});
   }
 
   public averageRating(): Observable<Product[]>{

@@ -40,8 +40,9 @@ export class ProductListDetailComponent implements OnInit {
 
   sendRating() {
     this.rating.numberOfStar = this.currentRate;
-    this.productService.sendRating(this.rating, this.product).subscribe(data => {
-      this.rating = new Rating();
+    this.productService.sendRating(this.currentRate, this.product).subscribe(data => {
     });
+    this.findAll();
   }
+
 }
