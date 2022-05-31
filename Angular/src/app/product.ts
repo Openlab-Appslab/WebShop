@@ -5,4 +5,5 @@ export class Product {
   productSize: number;
   weightOfCustomer: number;
   heightOfCustomer: number;
+  ratingAverage: number;
 }

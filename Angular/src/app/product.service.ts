@@ -5,6 +5,7 @@ import {Product} from "./product";
 import {Parameters} from "./parameters";
 import {InformationPage} from "./informationPage";
 import {Feedback} from "./feedback";
+import {Rating} from "./rating";
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,8 @@ export class ProductService {
   private addConplaintUrl: string;
   private showFeedbackUrl: string;
   private deleteComplaintUrl: string;
+  private sendRatingUrl: string;
+  private getRatingUrl: string;
 
   constructor(private http: HttpClient) {
     this.productsUrl = 'http://localhost:8080/products';
@@ -35,6 +38,8 @@ export class ProductService {
     this.addConplaintUrl = 'http://localhost:8080/addComplaint';
     this.showFeedbackUrl = 'http://localhost:8080/feedback';
     this.deleteComplaintUrl = 'http://localhost:8080/deleteComplaint';
+    this.sendRatingUrl = 'http://localhost:8080/addNewRating';
+    this.getRatingUrl = 'http://localhost:8080/getStars';
   }
 
   public findAll(): Observable<Product[]> {
@@ -83,5 +88,13 @@ export class ProductService {
 
   public deleteFeedback(feedback: Feedback){
     return this.http.post<Feedback>(this.deleteComplaintUrl, feedback);
+  }
+
+  public sendRating(rating: Rating, product: Product){
+    return this.http.post<Rating>(this.sendRatingUrl, {rating: rating, product: product});
+  }
+
+  public averageRating(): Observable<Product[]>{
+    return this.http.get<Product[]>(this.getRatingUrl);
   }
 }
