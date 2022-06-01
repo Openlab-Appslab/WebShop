@@ -10,13 +10,18 @@
 text-align: center;
 }
 .mat-card-actions{
-  display: flex;
   justify-content: center;
   margin-top: 40px;
+  position: relative;
+  bottom: 30px;
+  left: 23%;
+border-color: darkblue;
+
 }
 .mat-card-header{
-  display: flex;
   justify-content: center;
+  position: relative;
+  top: -50px;
 }
 .detail_button:hover{
   border: 2px solid black;
@@ -24,3 +29,20 @@ text-align: center;
 h1{
   text-align: center;
 }
+.mat-card-content
+{
+
+  position: relative;
+  top: -20px;
+  left: -75px;
+
+
+}
+
+.mat-card
+{
+  background-color: whitesmoke;
+}
+
+
+
