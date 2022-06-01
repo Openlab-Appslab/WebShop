@@ -7,5 +7,5 @@
   <ngb-rating *ngIf="isLoggedIn()" [max]="5" [(rate)]="currentRate"></ngb-rating>
   <button *ngIf="isLoggedIn()" (click)="sendRating()">Rate</button>
   <pre *ngIf="isLoggedIn() && currentRate!=0">Rate: <b>{{currentRate}}</b></pre>
-  <pre *ngIf="isLoggedIn() && currentRate!=0">Average rating: <b>{{product.ratingAverage}}</b></pre>
+  <pre *ngIf="isLoggedIn() && currentRate!=0">Average rating: <ngb-rating *ngIf="isLoggedIn()" [readonly] [max]="5" [(rate)]="averageRating"></ngb-rating></pre>
 </div>

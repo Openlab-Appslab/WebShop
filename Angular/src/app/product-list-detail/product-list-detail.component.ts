@@ -14,9 +14,9 @@ export class ProductListDetailComponent implements OnInit {
 
   detailId: number;
   product: Product;
-  getProduct: Product[];
   currentRate: number = 0;
   rating: Rating;
+  averageRating: number;
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private authService: AuthService) {
     this.detailId = +this.route.snapshot.paramMap.get('id');
@@ -25,7 +25,7 @@ export class ProductListDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAll();
-    this.productService.averageRating().subscribe(data => this.getProduct = data);
+    this.average();
   }
 
   findAll(): void {
@@ -34,15 +34,36 @@ export class ProductListDetailComponent implements OnInit {
     });
   }
 
+  average(): void{
+    if (this.product.ratingAverage >= 0.5 && this.product.ratingAverage < 1.5){
+      this.averageRating = 1;
+    }
+    else if (this.product.ratingAverage >= 1.5 && this.product.ratingAverage < 2.5){
+      this.averageRating = 2;
+    }
+    else if (this.product.ratingAverage >= 2.5 && this.product.ratingAverage < 3.5){
+      this.averageRating = 3;
+    }
+    else if (this.product.ratingAverage >= 3.5 && this.product.ratingAverage < 4.5){
+      this.averageRating = 4;
+    }
+    else if (this.product.ratingAverage >= 4.5){
+      this.averageRating = 5;
+    }
+    else{
+      this.averageRating = 0;
+    }
+  }
+
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
 
   sendRating() {
     this.rating.numberOfStar = this.currentRate;
-    this.productService.sendRating(this.currentRate, this.product).subscribe(data => {
+    this.productService.sendRating(this.rating.numberOfStar, this.product).subscribe(data => {
     });
     this.findAll();
+    this.average();
   }
-
 }

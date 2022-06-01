@@ -15,7 +15,8 @@ text-align: center;
   position: relative;
   bottom: 30px;
   left: 23%;
-border-color: darkblue;
+  border-color: darkblue;
+  display: flex;
 
 }
 .mat-card-header{
@@ -31,18 +32,19 @@ h1{
 }
 .mat-card-content
 {
-
   position: relative;
   top: -20px;
   left: -75px;
-
-
 }
 
 .mat-card
 {
-  background-color: whitesmoke;
+  background-color: white;
+}
+.mat-card-actions .mat-button, .mat-card-actions .mat-raised-button, .mat-card-actions .mat-stroked-button{
+  margin: 0 55px;
 }
 
-
-
+.mat-card-actions:not(.mat-card-actions-align-end) .mat-button:first-child, .mat-card-actions:not(.mat-card-actions-align-end) .mat-raised-button:first-child, .mat-card-actions:not(.mat-card-actions-align-end) .mat-stroked-button:first-child{
+  margin-right: 50px;
+}

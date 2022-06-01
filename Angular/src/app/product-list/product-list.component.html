@@ -44,11 +44,11 @@
           <mat-card-title>{{product.productName}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <img src="assets/florbal%20stick.jpg" alt="hokejka"  width="250" height="95">
+          <img src="../../assets/florbal_stick.png" alt="hokejka" width="250" height="95">
         </mat-card-content>
         <mat-card-actions>
          <button class="detail_button" (click)="lastTree(product)" mat-button routerLink="/detail/{{product.id}}">Detail</button>
-          <div>  <button class="detail_button" mat-button *ngIf="isAdminLoggedIn()"  (click)="deleteProduct(product)">Delete </button></div>
+            <button class="detail_button" mat-button *ngIf="isAdminLoggedIn()" (click)="deleteProduct(product)">Delete </button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
