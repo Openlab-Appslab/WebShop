@@ -57,6 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/deleteComplaint").hasAnyAuthority("ADMIN")
                 .antMatchers(HttpMethod.GET,"/products").permitAll()
                 .antMatchers(HttpMethod.POST, "/products").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST, "/createUser").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
@@ -79,7 +80,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+        return new BCryptPasswordEncoder(10);
     }
 
 }
