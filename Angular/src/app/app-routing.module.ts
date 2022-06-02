@@ -9,6 +9,7 @@ import {ProductListDetailComponent} from "./product-list-detail/product-list-det
 import {IdealStickComponent} from "./ideal-stick/ideal-stick.component";
 import {InformationPageComponent} from "./information-page/information-page.component";
 import {FeedbackComponent} from "./feedback/feedback.component";
+import {RegistrationFormComponent} from "./registration-form/registration-form.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'idealstick', component: IdealStickComponent },
   { path: 'infoaboutsport', component: InformationPageComponent },
   { path: 'contact', component: FeedbackComponent },
-  { path: 'contact', component: FeedbackComponent }
+  { path: 'register', component: RegistrationFormComponent}
 ];
 
 @NgModule({

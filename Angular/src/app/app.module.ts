@@ -31,6 +31,7 @@ import {InformationPageComponent} from "./information-page/information-page.comp
 import { FeedbackComponent } from './feedback/feedback.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatTreeModule} from "@angular/material/tree";
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {MatTreeModule} from "@angular/material/tree";
     ProductListDetailComponent,
     IdealStickComponent,
     InformationPageComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    RegistrationFormComponent
   ],
   imports: [
     BrowserModule,
