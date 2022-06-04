@@ -30,6 +30,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProduct(Product product) {
+        ratingRepository.deleteAll(ratingRepository.findRatingsByProduct(product));
         productRepository.delete(product);
     }
 
