@@ -6,6 +6,7 @@
       </mat-card-header>
       <mat-card-content>
         <img src="../../assets/florbal_stick.png" alt="hokejka" width="250" height="95">
+        <ngb-rating [readonly] [max]="5" [(rate)]="product.ratingAverage"></ngb-rating>
       </mat-card-content>
       <mat-card-actions>
         <button class="detail_button" routerLink="/detail/{{product.id}}" mat-button>Detail</button>

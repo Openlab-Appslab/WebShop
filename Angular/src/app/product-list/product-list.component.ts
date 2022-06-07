@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Product} from "../product";
 import {ProductService} from "../product.service";
 import { AuthService } from '../service/auth.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +13,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private productService: ProductService, private authService: AuthService) {
+  constructor(private route: ActivatedRoute, private productService: ProductService, private authService: AuthService) {
   }
 
   public selected: string = 'ID';
@@ -22,6 +23,8 @@ export class ProductListComponent implements OnInit {
   check_min_state: boolean = false;
   check_max_state: boolean = false;
   toggle_name: string = "Filter size";
+  averageRating: number;
+  product: Product;
 
 
   ngOnInit(): void {
@@ -108,4 +111,5 @@ export class ProductListComponent implements OnInit {
       this.products = data.filter(value => value.productName.toLowerCase().includes(searchValue.toLowerCase()));
     });
   }
+
 }
