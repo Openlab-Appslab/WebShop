@@ -17,6 +17,7 @@ export class ProductFormComponent {
   postResponse: any;
   successResponse: string;
   image: any;
+  public selected: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -78,4 +79,15 @@ export class ProductFormComponent {
         }
       );
   }
+
+  changeState() {
+    if (this.selected === 'Stick') {
+      this.product.switchOfProduct = 1;
+    } else if (this.selected === 'Ball') {
+      this.product.switchOfProduct = 2;
+    } else if (this.selected === 'Helmet') {
+      this.product.switchOfProduct = 3;
+    }
+  }
+
 }

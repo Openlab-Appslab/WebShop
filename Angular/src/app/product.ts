@@ -6,4 +6,5 @@ export class Product {
   weightOfCustomer: number;
   heightOfCustomer: number;
   ratingAverage: number;
+  switchOfProduct: number;
 }

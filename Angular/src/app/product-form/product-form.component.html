@@ -93,26 +93,15 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <br>
-      <form>
-        <div class="form-group">
-          <input type="file" (change)="onImageUpload({event : $event})">
-          <input type="button" (click)="imageUploadAction()" value="Upload Image" class="btn1">
-        </div>
-
-
-        <div>
-          <output *ngIf=successResponse class="success"><b>{{successResponse}}</b></output>
-        </div>
-        <br>
-
-
-        <div *ngIf=dbImage>
-          <img [src]="dbImage">
-        </div>
-
-      </form>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected" [(ngModel)]="product.switchOfProduct" name="switchOfProduct" id="switchOfProduct" (selectionChange)="changeState()" required>
+          <mat-option value='Stick'>Stick</mat-option>
+          <mat-option value='Ball'>Ball</mat-option>
+          <mat-option value='Helmet'>Helmet</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <button type="submit" [disabled]="!productForm.form.valid"
             class="btn btn-info">Submit

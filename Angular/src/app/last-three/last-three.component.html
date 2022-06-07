@@ -5,7 +5,9 @@
         <mat-card-title>{{product.productName}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <img src="../../assets/florbal_stick.png" alt="hokejka" width="250" height="95">
+        <img *ngIf="product.switchOfProduct === 1" src="../../assets/florbal_stick.png" alt="stick" width="250" height="95">
+        <img *ngIf="product.switchOfProduct === 2" src="../../assets/floorball_ball.png" alt="ball" width="250" height="95">
+        <img *ngIf="product.switchOfProduct === 3" src="../../assets/helmet.png" alt="helmet" width="250" height="95">
         <ngb-rating [readonly] [max]="5" [(rate)]="product.ratingAverage"></ngb-rating>
       </mat-card-content>
       <mat-card-actions>
