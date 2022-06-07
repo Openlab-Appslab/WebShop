@@ -1,38 +1,43 @@
-<div class="card-body">
-  <mat-form-field appearance="fill">
-    <mat-label>Select an option</mat-label>
-    <mat-select [(value)]="selected" (selectionChange)="changeState()">
-      <mat-option value='ID'>ID</mat-option>
-      <mat-option value='Name'>Name</mat-option>
-      <mat-option value='Parameter'>Parameter</mat-option>
-      <mat-option value='Size'>Size</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <div class="toggle">
-    <mat-slide-toggle (click)="toggle()">{{toggle_name}}</mat-slide-toggle>
-  </div>
-  <div *ngIf="isVisible">
+<div class="card-body" style="background-color:rgb(243, 243, 243);color: rgb(82, 82, 82);">
+  <div class="header">
+    <mat-form-field appearance="fill" class="option">
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="selected" (selectionChange)="changeState()">
+        <mat-option value='ID'>ID</mat-option>
+        <mat-option value='Name'>Name</mat-option>
+        <mat-option value='Parameter'>Parameter</mat-option>
+        <mat-option value='Size'>Size</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="filterProduct($event)" placeholder="Search">
+    </mat-form-field>
+
+    <!-- <div class="toggle">
+      <mat-slide-toggle (click)="toggle()">{{toggle_name}}</mat-slide-toggle>
+    </div> -->
+
+    <!-- <div *ngIf="isVisible"> -->
     <div>
-      <mat-form-field class="mat_input" appearance="fill">
+      <mat-form-field class="mat_input minsz" appearance="fill">
         <mat-label>Min. size</mat-label>
-        <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMinChange($event)" [(ngModel)]="min_value" placeholder="type only number">
+        <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMinChange($event)" [(ngModel)]="min_value"
+               placeholder="type only number">
       </mat-form-field>
     </div>
     <mat-form-field class="mat_input" appearance="fill">
       <mat-label>Max. size</mat-label>
-      <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMaxChange($event)" [(ngModel)]="max_value" placeholder="type only number">
+      <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMaxChange($event)" [(ngModel)]="max_value"
+             placeholder="type only number">
     </mat-form-field>
-    <div>
-      <button mat-raised-button color="primary" class="apply" (click)="filterSize()">Apply filter</button>
+    <div class="btns">
+      <button mat-raised-button color="primary" class="apply rgbn" (click)="filterSize()">Apply filter</button>
       <button mat-raised-button color="warn" class="reset" (click)="resetFilter()">Reset filter</button>
     </div>
   </div>
 
-
-  <mat-form-field appearance="fill">
-    <mat-label>Search</mat-label>
-    <input matInput (keyup)="filterProduct($event)" placeholder="Search">
-  </mat-form-field>
+  <!-- </div> -->
 
   <h1>Last viewed</h1>
   <app-last-three></app-last-three>
