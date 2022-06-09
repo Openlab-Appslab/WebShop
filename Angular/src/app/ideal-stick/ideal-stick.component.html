@@ -2,7 +2,7 @@
     <div class="col-md-12">
       <h1>Ideal Stick</h1>
       <div class="form-group">
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field appearance="fill">
           <mat-label>Weight</mat-label>
           <input type="text" [(ngModel)]="parameters.weightInForm"
                  id="weight"
@@ -19,7 +19,7 @@
             Weight is required
           </div>
         </div>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field appearance="fill">
           <mat-label>Height</mat-label>
           <input type="text" [(ngModel)]="parameters.heightInForm"
                  id="height"
@@ -44,9 +44,14 @@
           <mat-card-header>
             <mat-card-title>{{product.productName}}</mat-card-title>
           </mat-card-header>
-          <mat-card-actions>
-            <button class="detail_button" (click)="lastTree(product)" mat-button routerLink="/detail/{{product.id}}">Detail</button>
-            <button class="detail_button" mat-button *ngIf="isAdminLoggedIn()" (click)="deleteProduct(product)">Delete</button>
+          <mat-card-content>
+            <img *ngIf="product.switchOfProduct === 1" src="../../assets/florbal_stick.png" alt="stick" width="250" height="95">
+            <img *ngIf="product.switchOfProduct === 2" src="../../assets/floorball_ball.png" alt="ball" width="250" height="95">
+            <img *ngIf="product.switchOfProduct === 3" src="../../assets/helmet.png" alt="helmet" width="250" height="95">
+            <ngb-rating [readonly] [max]="5" [(rate)]="product.ratingAverage"></ngb-rating>
+          </mat-card-content>
+          <mat-card-actions class="skuska">
+           <button class="detail_button" (click)="lastTree(product)" mat-button routerLink="/detail/{{product.id}}">Detail</button>
           </mat-card-actions>
         </mat-card>
       </mat-grid-tile>
