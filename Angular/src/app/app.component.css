@@ -26,10 +26,13 @@ mat-sidenav {
 
   font-size: 2rem;
   color: lightgray;
+
 }
 
 mat-sidenav-container {
   height: calc(100vh - 65px);
+  background-color:rgb(243, 243, 243);
+
 }
 
 .btn-info {
