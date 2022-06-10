@@ -1,15 +1,15 @@
 <div class="container">
     <div class="col-md-12">
-      <h1>Ideal Stick</h1>
+      <h1>Find me the ideal floorball stick</h1>
       <div class="form-group">
         <mat-form-field appearance="fill">
-          <mat-label>Weight</mat-label>
+          <mat-label>Your weight(cm)</mat-label>
           <input type="text" [(ngModel)]="parameters.weightInForm"
                  id="weight"
                  matInput
                  (keyup)="calculate()"
                  name="weight"
-                 placeholder="Enter your weight"
+                 placeholder="Enter your your weight"
                  required #weight="ngModel">
         </mat-form-field>
         <div *ngIf="weight.invalid && (weight.dirty || weight.touched)"
@@ -20,7 +20,7 @@
           </div>
         </div>
         <mat-form-field appearance="fill">
-          <mat-label>Height</mat-label>
+          <mat-label>Your height(cm)</mat-label>
           <input type="text" [(ngModel)]="parameters.heightInForm"
                  id="height"
                  matInput

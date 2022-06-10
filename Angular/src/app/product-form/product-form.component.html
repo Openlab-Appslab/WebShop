@@ -1,15 +1,15 @@
-<div class="card-body">
+<div class="container">
   <form class="example-form" (ngSubmit)="onSubmit()" #productForm="ngForm">
+
     <div class="form-group">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Name</mat-label>
+      <label class="control-label col-sm-2" > <div class="bold-text"> Product name:</div></label>
+      <div class="col-sm-10">
         <input type="text" [(ngModel)]="product.productName"
                id="name"
-               matInput
                name="name"
-               placeholder="Enter product name"
+               class="form-control"
                required #name="ngModel">
-      </mat-form-field>
+
       <div *ngIf="name.invalid && (name.dirty || name.touched)"
            class="alert alert-danger">
 
@@ -17,17 +17,18 @@
           Product is required
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Parameter</mat-label>
+      </div>
+
+
+
+        <label class="control-label col-sm-2" > <div class="bold-text"> Parameters:</div></label>
+        <div class="col-sm-10">
         <input type="text" [(ngModel)]="product.productParameters"
                id="parameters"
-               matInput
                name="parameters"
-               placeholder="Enter parameter"
+               class="form-control"
                required #parameters="ngModel">
-      </mat-form-field>
+
       <div *ngIf="parameters.invalid && (parameters.dirty || parameters.touched)"
            class="alert alert-danger">
 
@@ -36,17 +37,18 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Size</mat-label>
+
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Size:</div></label>
+      <div class="col-sm-10">
         <input type="text" [(ngModel)]="product.productSize"
                id="size"
-               matInput
                name="size"
+               class="form-control"
                (keypress)="onlyNumbers($event)"
-               placeholder="Enter size"
                required #size="ngModel">
-      </mat-form-field>
+
       <div *ngIf="size.invalid && (size.dirty || size.touched)"
            class="alert alert-danger">
 
@@ -55,17 +57,18 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Weight</mat-label>
+
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Weight of customer:</div></label>
+      <div class="col-sm-10">
         <input type="text" [(ngModel)]="product.weightOfCustomer"
                id="weight"
-               matInput
                name="weight"
+               class="form-control"
                (keypress)="onlyNumbers($event)"
-               placeholder="Enter weight"
                required #weight="ngModel">
-      </mat-form-field>
+
       <div *ngIf="weight.invalid && (weight.dirty || weight.touched)"
            class="alert alert-danger">
 
@@ -74,17 +77,18 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Height of customer</mat-label>
+
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Height of customer:</div></label>
+      <div class="col-sm-10">
         <input type="text" [(ngModel)]="product.heightOfCustomer"
                id="height"
-               matInput
                name="height"
+               class="form-control"
                (keypress)="onlyNumbersAndSubmit($event)"
-               placeholder="Enter height"
                required #height="ngModel">
-      </mat-form-field>
+
       <div *ngIf="height.invalid && (height.dirty || height.touched)"
            class="alert alert-danger">
 
@@ -93,18 +97,29 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <mat-form-field appearance="fill">
-        <mat-label>Select an option</mat-label>
+
+
+
+
+
+
+
+        <mat-label class="control-label col-sm-2">  Select an option</mat-label>
+          <div class="col-sm-10">
+            <mat-form-field appearance="fill">
         <mat-select [(value)]="selected" [(ngModel)]="product.switchOfProduct" name="switchOfProduct" id="switchOfProduct" (selectionChange)="changeState()" required>
           <mat-option value='Stick'>Stick</mat-option>
           <mat-option value='Ball'>Ball</mat-option>
           <mat-option value='Helmet'>Helmet</mat-option>
         </mat-select>
-      </mat-form-field>
+            </mat-form-field>
     </div>
+
+      <div class="col-sm-offset-2 col-sm-10">
     <button type="submit" [disabled]="!productForm.form.valid"
             class="btn btn-info">Submit
     </button>
+      </div>
+    </div>
   </form>
 </div>
