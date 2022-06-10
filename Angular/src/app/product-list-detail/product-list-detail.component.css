@@ -11,3 +11,15 @@ ngb-rating{
 pre{
   font-size: 1em;
 }
+.mat-raised-button {
+  padding: 3px 6px 0 6px;
+  margin: -12px 8px 6px 8px;
+  min-width: 60px;
+  border-radius: 25px;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}

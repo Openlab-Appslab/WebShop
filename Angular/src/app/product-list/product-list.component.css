@@ -85,3 +85,9 @@ body {
   color: rgb(82, 82, 82);
   background-color: rgb(207, 207, 207);
 }
+.rating{
+  display: ruby;
+}
+.stars{
+  margin-left: 58px;
+}

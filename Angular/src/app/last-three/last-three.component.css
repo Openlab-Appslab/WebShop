@@ -74,3 +74,9 @@ ngb-rating{
   color: #FFD600;
   font-size: 2em;
 }
+.rating{
+  display: ruby;
+}
+.stars{
+  margin-left: 58px;
+}

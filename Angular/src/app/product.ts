@@ -7,4 +7,5 @@ export class Product {
   heightOfCustomer: number;
   ratingAverage: number;
   switchOfProduct: number;
+  countOfRatings: number;
 }

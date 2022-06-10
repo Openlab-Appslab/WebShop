@@ -68,8 +68,10 @@ public class ProductController {
         productService.deleteProduct(product);
     }
 
-
-
+    @PostMapping("/countOfRatings")
+    void countRatings(@RequestBody Product product) {
+        productService.updateProduct(product);
+    }
 }
 
 

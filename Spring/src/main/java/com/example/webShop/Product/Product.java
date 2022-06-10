@@ -35,6 +35,8 @@ public class Product {
     private int heightOfCustomer;
     @Column(name = "switch")
     private int switchOfProduct;
+    @Column(name = "count_of_ratings")
+    private int countOfRatings;
 
     //Tymto to proste blblo a nešlo
     @Column(name = "rating_average")

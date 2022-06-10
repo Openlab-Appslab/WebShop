@@ -25,6 +25,7 @@ export class ProductService {
   private deleteComplaintUrl: string;
   private sendRatingUrl: string;
   private getRatingUrl: string;
+  private postForCountUrl: string;
 
   constructor(private http: HttpClient) {
     this.productsUrl = 'http://localhost:8080/products';
@@ -40,6 +41,7 @@ export class ProductService {
     this.deleteComplaintUrl = 'http://localhost:8080/deleteComplaint';
     this.sendRatingUrl = 'http://localhost:8080/addNewRating';
     this.getRatingUrl = 'http://localhost:8080/getStars';
+    this.postForCountUrl = 'http://localhost:8080/countOfRatings';
   }
 
   public findAll(): Observable<Product[]> {
@@ -96,5 +98,9 @@ export class ProductService {
 
   public averageRating(): Observable<Product[]>{
     return this.http.get<Product[]>(this.getRatingUrl);
+  }
+
+  public countOfRatings(product: Product){
+    return this.http.post<Product>(this.postForCountUrl, product);
   }
 }

@@ -5,6 +5,6 @@
   <p>Weight of the costumer: {{product.weightOfCustomer}}</p>
   <p>Height of the costumer: {{product.heightOfCustomer}}</p>
   <ngb-rating *ngIf="isLoggedIn()" [max]="5" [(rate)]="currentRate"></ngb-rating>
-  <button *ngIf="isLoggedIn()" (click)="sendRating()">Rate</button>
+  <button *ngIf="isLoggedIn()" mat-raised-button color="warn" (click)="sendRating()">Rate</button>
   <pre *ngIf="isLoggedIn() && currentRate!=0">Rate: <b>{{currentRate}}</b></pre>
 </div>

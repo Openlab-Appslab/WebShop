@@ -41,6 +41,7 @@ export class ProductListDetailComponent implements OnInit {
     this.rating.numberOfStar = this.currentRate;
     this.productService.sendRating(this.rating.numberOfStar, this.product).subscribe(data => {
     });
+    this.productService.countOfRatings(this.product).subscribe();
     this.findAll();
   }
 }

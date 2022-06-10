@@ -67,6 +67,13 @@ public class ProductServiceImpl implements ProductService {
 
    }
 
+    public void updateProduct(Product product) {
+        // this product countOfRatings plus 1
+        Product myProduct = productRepository.findById(product.getId());
+        myProduct.setCountOfRatings(myProduct.getCountOfRatings() + 1);
+        productRepository.save(myProduct);
+    }
+
     }
 
 
