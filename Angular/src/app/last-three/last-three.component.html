@@ -10,7 +10,7 @@
         <img *ngIf="product.switchOfProduct === 3" src="../../assets/helmet.png" alt="helmet" width="250" height="95">
         <div class="rating">
           <ngb-rating class="stars" [readonly] [max]="5" [(rate)]="product.ratingAverage"></ngb-rating>
-          <span>/ {{product.countOfRatings}}</span>
+          <span> /{{product.countOfRatings}}</span>
         </div>
       </mat-card-content>
       <mat-card-actions>

@@ -42,6 +42,7 @@
   justify-content: center;
   position: relative;
   top: -50px;
+   margin: 0 -60px;
 }
 .detail_button:hover{
   border: 2px solid black;
@@ -75,8 +76,12 @@ ngb-rating{
   font-size: 2em;
 }
 .rating{
-  display: ruby;
+  display: flex;
 }
 .stars{
   margin-left: 58px;
+}
+
+span{
+margin-top: 17px;
 }
