@@ -1,10 +1,24 @@
 <div>
-  <h2>Name of the product: {{product.productName}}</h2>
-  <p>Parameter of the product: {{product.productParameters}}</p>
-  <p>Size of the product: {{product.productSize}}</p>
-  <p>Weight of the costumer: {{product.weightOfCustomer}}</p>
-  <p>Height of the costumer: {{product.heightOfCustomer}}</p>
-  <ngb-rating *ngIf="isLoggedIn()" [max]="5" [(rate)]="currentRate"></ngb-rating>
-  <button *ngIf="isLoggedIn()" mat-raised-button color="warn" (click)="sendRating()">Rate</button>
-  <pre *ngIf="isLoggedIn() && currentRate!=0">Rate: <b>{{currentRate}}</b></pre>
+  <img *ngIf="product.switchOfProduct === 2" src="../../assets/ball_detail.png" />
+  <img *ngIf="product.switchOfProduct === 1" src="../../assets/sticks_detail.png" />
+  <img *ngIf="product.switchOfProduct === 3" src="../../assets/helmet_detail.png" />
+  <p class="name">{{product.productName}}</p>
 </div>
+
+<hr/>
+<table width="50%" cellspacing="0">
+  <thead>
+  <th width="100">Parameter of the product</th>
+  <th width="100">Size of the product</th>
+  <th width="100">Weight of the costumer</th>
+  <th width="100">Height of the costumer</th>
+  </thead>
+  <tbody>
+  <tr>
+  <td>{{product.productParameters}}</td>
+  <td>{{product.productSize}}</td>
+  <td>{{product.weightOfCustomer}}</td>
+  <td>{{product.heightOfCustomer}}</td>
+  </tr>
+  </tbody>
+</table>
