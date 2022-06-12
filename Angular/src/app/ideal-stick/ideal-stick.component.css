@@ -36,6 +36,7 @@
   justify-content: center;
   position: relative;
   top: -50px;
+  margin: 0 -100px;
 }
 .detail_button:hover{
   border: 2px solid black;
