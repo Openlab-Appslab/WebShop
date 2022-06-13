@@ -1,4 +1,4 @@
-<div>
+<div class="binding">
   <img *ngIf="product.switchOfProduct === 2" src="../../assets/ball_detail.png" />
   <img *ngIf="product.switchOfProduct === 1" src="../../assets/sticks_detail.png" />
   <img *ngIf="product.switchOfProduct === 3" src="../../assets/helmet_detail.png" />
@@ -22,3 +22,8 @@
   </tr>
   </tbody>
 </table>
+<div class="rate">
+  <ngb-rating *ngIf="isLoggedIn()" [max]="5" [(rate)]="currentRate"></ngb-rating>
+  <button *ngIf="isLoggedIn()" mat-raised-button color="warn" (click)="sendRating()">Rate</button>
+  <pre *ngIf="isLoggedIn() && currentRate!=0">Rate: <b>{{currentRate}}</b></pre>
+</div>

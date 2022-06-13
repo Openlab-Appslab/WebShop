@@ -1,6 +1,12 @@
 table th, table td{
   text-align: center;
   }
+td{
+  /* set max with to 100px than continue to next line */
+  max-width: 100px;
+  word-wrap: break-word;
+  
+}
 table{
   margin-left: 130px;
   margin-top: 4em;
@@ -16,11 +22,18 @@ hr {
   margin-left: 16em;
   width: 70em;
 }
-div {
+.binding {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.rate{
+  /*  center it with h2 */
+  text-align: center;
+  margin-top: 5em;
+  margin-left: 16em;
+  width: 70em;
 }
 p{
   font-size: 2.5em;
@@ -33,6 +46,7 @@ ngb-rating{
 
 pre{
   font-size: 1em;
+  margin-right: 5em;
 }
 .mat-raised-button {
   padding: 3px 6px 0 6px;

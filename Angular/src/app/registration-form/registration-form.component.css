@@ -1,0 +1,8 @@
+/* set same input and alert width 100px */
+input {
+  width: 60em;
+}
+.alert {
+    width: 68.5em;
+    margin-left: 15px;
+}

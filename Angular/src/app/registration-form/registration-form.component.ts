@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {newUser} from "../new-user";
 import {FormBuilder, Validators} from "@angular/forms";
 import {UserService} from "../user.service";
+import {Router} from "@angular/router";
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-registration-form',
@@ -11,8 +13,9 @@ import {UserService} from "../user.service";
 export class RegistrationFormComponent {
   userForm: any;
   user: newUser;
+  check: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
     this.CreateForm();
   }
   CreateForm() {
@@ -33,6 +36,14 @@ export class RegistrationFormComponent {
         //confirmPassword: this.userForm.value.confirmPassword,
       }
     }
-    this.userService.save(this.user).subscribe();
+    this.userService.save(this.user).subscribe(
+      data => {
+        this.check = true;
+      }
+    );
+    setTimeout(() => {
+      this.check = false;
+      this.router.navigate(['/login']);
+    }, 5000);
   }
 }

@@ -8,6 +8,7 @@ import {newUser} from "./new-user";
 export class UserService {
 
   private usersUrl: string;
+  public check: boolean = false;
 
   constructor(private http: HttpClient) {
     this.usersUrl = 'http://localhost:8080/createUser';
@@ -18,6 +19,6 @@ export class UserService {
   }
 
   public save(user: newUser) {
-    return this.http.post<User>(this.usersUrl, user);
+    return this.http.post<newUser>(this.usersUrl, user, {observe: 'response'});
   }
 }
